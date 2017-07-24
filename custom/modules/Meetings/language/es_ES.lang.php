@@ -1,7 +1,29 @@
 <?php
-// created: 2017-07-17 17:05:59
+// created: 2017-07-24 17:16:18
 $mod_strings = array (
   'LBL_BONO_BONOS_BONOS_ID' => 'Bono (relacionado  ID)',
   'LBL_BONO' => 'Bono',
   'LBL_BONO_VALIDADO' => 'Validado',
+  'LBL_ALUMNO1_ACCOUNT_ID' => 'Alumno 1 (relacionado Cuenta ID)',
+  'LBL_ALUMNO1' => 'Alumno 1',
+  'LBL_ALUMNO2_ACCOUNT_ID' => 'Alumno 2 (relacionado Cuenta ID)',
+  'LBL_ALUMNO2' => 'Alumno 2',
+  'LBL_ALUMNO3_ACCOUNT_ID' => 'Alumno 3 (relacionado Cuenta ID)',
+  'LBL_ALUMNO3' => 'Alumno 3',
+  'LBL_ALUMNO4_ACCOUNT_ID' => 'Alumno 4 (relacionado Cuenta ID)',
+  'LBL_ALUMNO4' => 'Alumno 4',
+  'LBL_ALUMNO5_ACCOUNT_ID' => 'Alumno 5 (relacionado Cuenta ID)',
+  'LBL_ALUMNO5' => 'Alumno 5',
+  'LBL_ALUMNO6_ACCOUNT_ID' => 'Alumno 6 (relacionado Cuenta ID)',
+  'LBL_ALUMNO6' => 'Alumno 6',
+  'LBL_ALUMNO7_ACCOUNT_ID' => 'Alumno 7 (relacionado Cuenta ID)',
+  'LBL_ALUMNO7' => 'Alumno 7',
+  'LBL_ALUMNO8_ACCOUNT_ID' => 'Alumno 8 (relacionado Cuenta ID)',
+  'LBL_ALUMNO8' => 'Alumno 8',
+  'LBL_ALUMNO9_ACCOUNT_ID' => 'Alumno 9 (relacionado Cuenta ID)',
+  'LBL_ALUMNO9' => 'Alumno 9',
+  'LBL_ALUMNO10_ACCOUNT_ID' => 'Alumno 10 (relacionado Cuenta ID)',
+  'LBL_ALUMNO10' => 'Alumno 10',
+  'LBL_QUICKCREATE_PANEL1' => 'Alumnos',
+  'LBL_PANEL_ASSIGNMENT' => 'Alumnos',
 );

@@ -84,7 +84,7 @@ array (
         'LBL_PANEL_ASSIGNMENT' => 
         array (
           'newTab' => false,
-          'panelDefault' => 'expanded',
+          'panelDefault' => 'collapsed',
         ),
       ),
       'syncDetailEditViews' => true,
