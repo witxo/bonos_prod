@@ -37,25 +37,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 
-function getPrecioHora($profe, $alum){
-  $ret = array();
-
-
-  		$db = $GLOBALS['db'];
- 
-    $query = "select amount from preci_precios where deleted = 0 and account_id_c ='".$profe."' and account_id1_c = '".$alum."'";
-  
-    $result = $db->query($query);
-  
-    
-$row = $db->fetchByAssoc($result);
-	
-	if ($row == false)
-    		return 0;
-	else  return $row['amount'];
-
-
-}
+require_once('custom/funciones.php');
 
 function additionalDetailsMeeting($fields) {
 	static $mod_strings;
@@ -112,7 +94,7 @@ for ($i = 0; $i < 10; $i++)
     $precio_prof = 0;
     if ($cabecera == 0)
     {
-       $overlib_string .= '<br><b>Alumnos:</b><br>';
+       $overlib_string .= '<br><u>Alumnos:</u><br>';
       $cabecera = 1;
     }
   
@@ -129,62 +111,58 @@ for ($i = 0; $i < 10; $i++)
   
 	if ($cuenta != '')
     {
-     $AccountBean = BeanFactory::getBean('Accounts', $cuenta);
-           $UserBean = BeanFactory::getBean('Users', $fields['ASSIGNED_USER_ID']);
-    $precio_prof = getPrecioHora($UserBean->account_id_c, $AccountBean->id);   
+     	$AccountBean = BeanFactory::getBean('Accounts', $cuenta);
+        $UserBean = BeanFactory::getBean('Users', $fields['ASSIGNED_USER_ID']);
+    	$precio_prof = getPrecioHora($UserBean->account_id_c, $AccountBean->id);   
       
-          $precio_prof_tot = $precio_prof_tot + $precio_prof;
+        $precio_prof_tot = $precio_prof_tot + $precio_prof;
       
- $overlib_string .= '<b>'. "<a href='index.php?module=Accounts&action=DetailView&record=".$AccountBean->id."'>" . $AccountBean->name . "</a>". '</b> ';
-    $overlib_string .= ' - Precio: '.$precio_prof;
-    $overlib_string .= '<br>';
-    }
+ 		$overlib_string .= '<b>'. "<a href='index.php?module=Accounts&action=DetailView&record=".$AccountBean->id."'>" . $AccountBean->name . "</a>". '</b> ';
+    	$overlib_string .= ' - Coste: '.$precio_prof;
+    	$overlib_string .= '<br>';
+    }  
+}  
 
-
-
-  
-}
-  
-
-  $overlib_string .= '<b>'. "Precio Total: ". $precio_prof_tot. '</b>';      
     
-	
-/* 		$db = $GLOBALS['db'];
+  
+  $sueldo_profe = getSueldoMes ($UserBean->account_id_c, 7);
+  $ss_profe = getSSMes ($UserBean->account_id_c, 7);
+  $irpf_profe = getIRPFMes ($UserBean->account_id_c, 7);
+  $gastos_profe = $sueldo_profe + $ss_profe + $irpf_profe;
+  
+  
+  $horas_profe = getHorasProfe ($UserBean->account_id_c, 7);
+  
+  $coste_profe_hora = $gastos_profe / $horas_profe;
+    $overlib_string .= '<br><b>'. "Gastos Profe: ". round($gastos_profe, 2). '</b>';   
+   $overlib_string .= '<br><b>'. "Horas Profe: ". round($horas_profe, 2). '</b>';     
+   $overlib_string .= '<br><b>'. "Coste Profe/h: ". round($coste_profe_hora, 2). '</b>';     
+      
+$duracion_min = $fields['DURATION_HOURS']*60  + $fields['DURATION_MINUTES'];   
+  
+
+  $Bono = BeanFactory::getBean('Bonos_Bonos', $fields['BONOS_BONOS_ID_C']);
+  
+  
+  $overlib_string .= '<br><br><u>'. "Ingresos:".'</u>';
+    $overlib_string .= "<br>Ingresos Bono ".$fields['BONO_C'].": ". $Bono->precio;   
+  
+    $overlib_string .= '<br><br><b>'. "Ingresos/h: ". $Bono->precio * 60 / $duracion_min. '</b>';      
+  
+  $dif = $Bono->precio * 60 / $duracion_min - $coste_profe_hora;
+  
+  if ($dif >= 0)
+  {
+   	$overlib_string .= '<br><br><b>'. "Beneficio: ". round($dif, 2). '</b>';  
+  }
+  else
+  {
+     $overlib_string .= '<br><br><b>'. "Perdida: ". round($dif, 2). '</b>';   
+  }
+
+  
  
-    $query = "SELECT * FROM `meetings_accounts_1_c` WHERE meetings_accounts_1meetings_ida = '". $fields['ID']."'";
-  
-    $result = $db->query($query);
-  	$cabecera = 0;
-  
-    $precio_prof_tot = 0;
-  
-  while ( $row = $db->fetchByAssoc($result) ) {
-    $precio_prof = 0;
-    if ($cabecera == 0)
-    {
-       $overlib_string .= '<br><b>Alumnos:</b><br>';
-      $cabecera = 1;
-    }
-    $GLOBALS['log']->fatal($row['meetings_accounts_1accounts_idb']); 
-     $AccountBean = BeanFactory::getBean('Accounts', $row['meetings_accounts_1accounts_idb']);
-           $UserBean = BeanFactory::getBean('Users', $fields['ASSIGNED_USER_ID']);
-    $precio_prof = getPrecioHora($UserBean->account_id_c, $AccountBean->id);
-	
-    $overlib_string .= '<b>'. "<a href='index.php?module=Accounts&action=DetailView&record=".$AccountBean->id."'>" . $AccountBean->name . "</a>". '</b> ';
-    $overlib_string .= ' - Precio: '.$precio_prof;
-    $overlib_string .= '<br>';
-    
-   /* $precio_prof = getPrecioHora('cac7cbf0-3884-919b-aadf-591acc61927b', $AccountBean->id);
-    
 
-
-
-    $precio_prof_tot = $precio_prof_tot + $precio_prof;
-}
-  $overlib_string .= '<b>'. "Precio Total: ". $precio_prof_tot. '</b>';
-   */
-  
-  
 
   
 

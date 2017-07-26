@@ -1,5 +1,5 @@
 <?php
-// created: 2017-07-24 17:16:18
+// created: 2017-07-25 18:01:04
 $mod_strings = array (
   'LBL_BONO_BONOS_BONOS_ID' => 'Bono (relacionado  ID)',
   'LBL_BONO' => 'Bono',
@@ -26,4 +26,23 @@ $mod_strings = array (
   'LBL_ALUMNO10' => 'Alumno 10',
   'LBL_QUICKCREATE_PANEL1' => 'Alumnos',
   'LBL_PANEL_ASSIGNMENT' => 'Alumnos',
+  'LBL_ASISTENCIA1' => 'Asistencia Alum 1',
+  'LNK_NEW_MEETING' => 'Programar Clase',
+  'LNK_MEETING_LIST' => 'Ver Clases',
+  'LNK_IMPORT_MEETINGS' => 'Importar Clases',
+  'LBL_LIST_FORM_TITLE' => 'Lista de Reuniones',
+  'LBL_SEARCH_FORM_TITLE' => 'Búsqueda de Reuniones',
+  'LBL_LIST_MY_MEETINGS' => 'Mis Clases',
+  'LBL_TYPE' => 'Tipo de Clase',
+  'LBL_MODULE_NAME' => 'Clases',
+  'LBL_ASISTENCIA2' => 'Asistencia Alum 2',
+  'LBL_ASISTENCIA3' => 'Asistencia Alum 3',
+  'LBL_ASISTENCIA4' => 'Asistencia Alum 4',
+  'LBL_ASISTENCIA5' => 'Asistencia Alum 5',
+  'LBL_ASISTENCIA6' => 'Asistencia Alum 6',
+  'LBL_ASISTENCIA7' => 'Asistencia Alum 7',
+  'LBL_ASISTENCIA8' => 'Asistencia Alum 8',
+  'LBL_ASISTENCIA9' => 'Asistencia Alum 9',
+  'LBL_ASISTENCIA10' => 'Asistencia Alum 10',
+  'LBL_LIST_ASSIGNED_TO_NAME' => 'Profesor',
 );

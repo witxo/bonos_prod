@@ -52,6 +52,7 @@ $bono = new Bonos_Bonos();
 
     $rel_name = 'bonos_bonos_accounts';
     $bono->numerobono = $numbono;
+    $bono->name = $numbono;
     $bono->precio = $precio;
     $bono->account_id_c = $cuenta;
     $bono->load_relationship($rel_name);
@@ -78,6 +79,9 @@ if ($this->numerobono == '')
 {
 	$this->numerobono = $newnumber + 1; // is this correct if i want the custom_id_c to increment?    
 }
+        
+    $this->name = $this->numerobono;
+        
         $rel_name = 'bonos_bonos_accounts';
         $this->load_relationship($rel_name);
         

@@ -190,7 +190,11 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             'studio' => 'visible',
             'label' => 'LBL_ALUMNO1',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'asistencia1_c',
+            'label' => 'LBL_ASISTENCIA1',
+          ),
         ),
         1 => 
         array (
@@ -200,7 +204,11 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             'studio' => 'visible',
             'label' => 'LBL_ALUMNO2',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'asistencia2_c',
+            'label' => 'LBL_ASISTENCIA2',
+          ),
         ),
         2 => 
         array (
@@ -210,7 +218,11 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             'studio' => 'visible',
             'label' => 'LBL_ALUMNO3',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'asistencia3_c',
+            'label' => 'LBL_ASISTENCIA3',
+          ),
         ),
         3 => 
         array (
@@ -220,7 +232,11 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             'studio' => 'visible',
             'label' => 'LBL_ALUMNO4',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'asistencia4_c',
+            'label' => 'LBL_ASISTENCIA4',
+          ),
         ),
         4 => 
         array (
@@ -230,7 +246,11 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             'studio' => 'visible',
             'label' => 'LBL_ALUMNO5',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'asistencia5_c',
+            'label' => 'LBL_ASISTENCIA5',
+          ),
         ),
         5 => 
         array (
@@ -240,7 +260,11 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             'studio' => 'visible',
             'label' => 'LBL_ALUMNO6',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'asistencia6_c',
+            'label' => 'LBL_ASISTENCIA6',
+          ),
         ),
         6 => 
         array (
@@ -250,7 +274,11 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             'studio' => 'visible',
             'label' => 'LBL_ALUMNO7',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'asistencia7_c',
+            'label' => 'LBL_ASISTENCIA7',
+          ),
         ),
         7 => 
         array (
@@ -260,7 +288,11 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             'studio' => 'visible',
             'label' => 'LBL_ALUMNO8',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'asistencia8_c',
+            'label' => 'LBL_ASISTENCIA8',
+          ),
         ),
         8 => 
         array (
@@ -270,7 +302,11 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             'studio' => 'visible',
             'label' => 'LBL_ALUMNO9',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'asistencia9_c',
+            'label' => 'LBL_ASISTENCIA9',
+          ),
         ),
         9 => 
         array (
@@ -280,7 +316,11 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             'studio' => 'visible',
             'label' => 'LBL_ALUMNO10',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'asistencia10_c',
+            'label' => 'LBL_ASISTENCIA10',
+          ),
         ),
       ),
     ),

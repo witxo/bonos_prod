@@ -37,7 +37,7 @@
 $relationships = array (
   'lead_meetings' => 
   array (
-    'id' => '4fb0d2a8-8a6c-92cc-1a43-59760e885bc1',
+    'id' => '2729c863-4365-7e73-c4ca-59774b2205e6',
     'relationship_name' => 'lead_meetings',
     'lhs_module' => 'Leads',
     'lhs_table' => 'leads',
@@ -63,7 +63,7 @@ $relationships = array (
   ),
   'case_meetings' => 
   array (
-    'id' => '5250ca2a-329b-bcfd-25b9-59760eb630b0',
+    'id' => '2a11452c-129d-c94c-28f3-59774b13a05d',
     'relationship_name' => 'case_meetings',
     'lhs_module' => 'Cases',
     'lhs_table' => 'cases',
@@ -89,7 +89,7 @@ $relationships = array (
   ),
   'bug_meetings' => 
   array (
-    'id' => '5483c647-f012-49df-515c-59760ebe53d5',
+    'id' => '2c7ffaad-b284-88f2-8004-59774bd31f46',
     'relationship_name' => 'bug_meetings',
     'lhs_module' => 'Bugs',
     'lhs_table' => 'bugs',
@@ -115,7 +115,7 @@ $relationships = array (
   ),
   'projects_meetings' => 
   array (
-    'id' => '58b253fd-f9c6-7508-d1e8-59760e4218e7',
+    'id' => '319eb2ff-208e-52af-e54c-59774bd4950c',
     'relationship_name' => 'projects_meetings',
     'lhs_module' => 'Project',
     'lhs_table' => 'project',
@@ -141,7 +141,7 @@ $relationships = array (
   ),
   'project_tasks_meetings' => 
   array (
-    'id' => '5df6d565-e705-c113-8675-59760e7f12ce',
+    'id' => '3480a424-6dab-169e-ce93-59774bcb8214',
     'relationship_name' => 'project_tasks_meetings',
     'lhs_module' => 'ProjectTask',
     'lhs_table' => 'project_task',
@@ -167,7 +167,7 @@ $relationships = array (
   ),
   'prospect_meetings' => 
   array (
-    'id' => '671fd1b6-b583-caa9-e4dd-59760e100152',
+    'id' => '3dc0c5b3-155c-87a4-3503-59774b97b8d0',
     'relationship_name' => 'prospect_meetings',
     'lhs_module' => 'Prospects',
     'lhs_table' => 'prospects',
@@ -193,7 +193,7 @@ $relationships = array (
   ),
   'account_meetings' => 
   array (
-    'id' => '7921c94b-dedf-1c7d-0add-59760ec1040b',
+    'id' => '4c9fabe3-17ef-920b-5388-59774bf130eb',
     'relationship_name' => 'account_meetings',
     'lhs_module' => 'Accounts',
     'lhs_table' => 'accounts',
@@ -210,8 +210,8 @@ $relationships = array (
     'reverse' => '0',
     'deleted' => '0',
     'readonly' => true,
-    'rhs_subpanel' => 'default',
-    'lhs_subpanel' => 'default',
+    'rhs_subpanel' => NULL,
+    'lhs_subpanel' => NULL,
     'relationship_only' => false,
     'for_activities' => false,
     'is_custom' => false,
@@ -219,7 +219,7 @@ $relationships = array (
   ),
   'opportunity_meetings' => 
   array (
-    'id' => '7c2295e7-f158-8ef4-284c-59760e6b43c0',
+    'id' => '4f8b326d-2b77-2a7d-3f94-59774b050e7e',
     'relationship_name' => 'opportunity_meetings',
     'lhs_module' => 'Opportunities',
     'lhs_table' => 'opportunities',
@@ -245,7 +245,7 @@ $relationships = array (
   ),
   'meetings_modified_user' => 
   array (
-    'id' => '8b13ef2d-2a50-3cec-606f-59760e1e8e92',
+    'id' => '647db583-780a-61ac-7cb8-59774bb97f8a',
     'relationship_name' => 'meetings_modified_user',
     'lhs_module' => 'Users',
     'lhs_table' => 'users',
@@ -271,7 +271,7 @@ $relationships = array (
   ),
   'meetings_created_by' => 
   array (
-    'id' => '8b4d86ce-6b4a-fb4e-8cba-59760e23ec13',
+    'id' => '64b4093f-0f52-4877-4759-59774b091d30',
     'relationship_name' => 'meetings_created_by',
     'lhs_module' => 'Users',
     'lhs_table' => 'users',
@@ -297,7 +297,7 @@ $relationships = array (
   ),
   'meetings_assigned_user' => 
   array (
-    'id' => '8b8ad68b-c835-4b9b-d66a-59760e771cc5',
+    'id' => '64e9713a-326c-7ead-43b1-59774bc4afc3',
     'relationship_name' => 'meetings_assigned_user',
     'lhs_module' => 'Users',
     'lhs_table' => 'users',
@@ -323,7 +323,7 @@ $relationships = array (
   ),
   'meetings_notes' => 
   array (
-    'id' => '8bbe45bd-d98e-b13a-e5e1-59760e08a3c0',
+    'id' => '651f83f2-2069-c50f-9123-59774b3e2aa0',
     'relationship_name' => 'meetings_notes',
     'lhs_module' => 'Meetings',
     'lhs_table' => 'meetings',
@@ -349,7 +349,7 @@ $relationships = array (
   ),
   'meetings_contacts' => 
   array (
-    'id' => 'b4c357dc-1699-b551-a15f-59760e25c039',
+    'id' => 'affaf770-55ad-d800-e96d-59774bc16ce9',
     'relationship_name' => 'meetings_contacts',
     'lhs_module' => 'Meetings',
     'lhs_table' => 'meetings',
@@ -375,7 +375,7 @@ $relationships = array (
   ),
   'meetings_users' => 
   array (
-    'id' => 'b4f69b0d-a9ab-a8d9-25ce-59760e1f31f4',
+    'id' => 'b035fd99-2c9b-fb75-b108-59774b8a463c',
     'relationship_name' => 'meetings_users',
     'lhs_module' => 'Meetings',
     'lhs_table' => 'meetings',
@@ -401,7 +401,7 @@ $relationships = array (
   ),
   'meetings_leads' => 
   array (
-    'id' => 'b52942c4-dd78-1a18-c7e1-59760ec8cfef',
+    'id' => 'b0739f76-8a6c-263c-ad5e-59774b211ee1',
     'relationship_name' => 'meetings_leads',
     'lhs_module' => 'Meetings',
     'lhs_table' => 'meetings',
@@ -424,31 +424,5 @@ $relationships = array (
     'for_activities' => false,
     'is_custom' => false,
     'from_studio' => false,
-  ),
-  'meetings_bonos_bonos_1' => 
-  array (
-    'id' => 'b87e36d5-0efd-f108-6338-59760e1af880',
-    'relationship_name' => 'meetings_bonos_bonos_1',
-    'lhs_module' => 'Meetings',
-    'lhs_table' => 'meetings',
-    'lhs_key' => 'id',
-    'rhs_module' => 'Bonos_Bonos',
-    'rhs_table' => 'bonos_bonos',
-    'rhs_key' => 'id',
-    'join_table' => 'meetings_bonos_bonos_1_c',
-    'join_key_lhs' => 'meetings_bonos_bonos_1meetings_ida',
-    'join_key_rhs' => 'meetings_bonos_bonos_1bonos_bonos_idb',
-    'relationship_type' => 'one-to-one',
-    'relationship_role_column' => NULL,
-    'relationship_role_column_value' => NULL,
-    'reverse' => '0',
-    'deleted' => '0',
-    'readonly' => true,
-    'rhs_subpanel' => NULL,
-    'lhs_subpanel' => NULL,
-    'from_studio' => true,
-    'is_custom' => true,
-    'relationship_only' => false,
-    'for_activities' => false,
   ),
 );

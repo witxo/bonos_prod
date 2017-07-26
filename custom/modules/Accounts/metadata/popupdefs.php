@@ -58,82 +58,32 @@ $popupMeta = array (
     'listviewdefs' => array (
   'NAME' => 
   array (
-    'width' => '40',
+    'width' => '40%',
     'label' => 'LBL_LIST_ACCOUNT_NAME',
     'link' => true,
     'default' => true,
+    'name' => 'name',
   ),
-  'BILLING_ADDRESS_STREET' => 
+  'ALUMNO_C' => 
   array (
-    'width' => '10',
-    'label' => 'LBL_BILLING_ADDRESS_STREET',
-    'default' => false,
-  ),
-  'BILLING_ADDRESS_CITY' => 
-  array (
-    'width' => '10',
-    'label' => 'LBL_LIST_CITY',
+    'type' => 'varchar',
     'default' => true,
+    'label' => 'LBL_ALUMNO',
+    'width' => '10%',
   ),
-  'BILLING_ADDRESS_STATE' => 
+  'ACCOUNT_TYPE' => 
   array (
-    'width' => '7',
-    'label' => 'LBL_STATE',
+    'type' => 'enum',
+    'label' => 'LBL_TYPE',
+    'width' => '10%',
     'default' => true,
-  ),
-  'BILLING_ADDRESS_COUNTRY' => 
-  array (
-    'width' => '10',
-    'label' => 'LBL_COUNTRY',
-    'default' => true,
-  ),
-  'BILLING_ADDRESS_POSTALCODE' => 
-  array (
-    'width' => '10',
-    'label' => 'LBL_BILLING_ADDRESS_POSTALCODE',
-    'default' => false,
-  ),
-  'SHIPPING_ADDRESS_STREET' => 
-  array (
-    'width' => '10',
-    'label' => 'LBL_SHIPPING_ADDRESS_STREET',
-    'default' => false,
-  ),
-  'SHIPPING_ADDRESS_CITY' => 
-  array (
-    'width' => '10',
-    'label' => 'LBL_LIST_CITY',
-    'default' => false,
-  ),
-  'SHIPPING_ADDRESS_STATE' => 
-  array (
-    'width' => '7',
-    'label' => 'LBL_STATE',
-    'default' => false,
-  ),
-  'SHIPPING_ADDRESS_COUNTRY' => 
-  array (
-    'width' => '10',
-    'label' => 'LBL_COUNTRY',
-    'default' => false,
-  ),
-  'SHIPPING_ADDRESS_POSTALCODE' => 
-  array (
-    'width' => '10',
-    'label' => 'LBL_SHIPPING_ADDRESS_POSTALCODE',
-    'default' => false,
   ),
   'ASSIGNED_USER_NAME' => 
   array (
-    'width' => '2',
+    'width' => '2%',
     'label' => 'LBL_LIST_ASSIGNED_USER',
     'default' => true,
-  ),
-  'PHONE_OFFICE' => 
-  array (
-    'width' => '10',
-    'label' => 'LBL_LIST_PHONE',
-    'default' => false,
+    'name' => 'assigned_user_name',
   ),
 ),
 );

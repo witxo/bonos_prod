@@ -40,6 +40,15 @@ array (
         ),
       ),
       'useTabs' => false,
+      'tabDefs' => 
+      array (
+        'DEFAULT' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+      ),
+      'syncDetailEditViews' => true,
     ),
     'footerTpl' => NULL,
     'panels' => 
@@ -99,6 +108,16 @@ array (
           array (
             'name' => 'description',
             'label' => 'LBL_DESCRIPTION',
+          ),
+          1 => '',
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'clase_c',
+            'studio' => 'visible',
+            'label' => 'LBL_CLASE',
           ),
           1 => '',
         ),

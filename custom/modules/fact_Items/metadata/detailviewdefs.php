@@ -30,6 +30,15 @@ array (
         ),
       ),
       'useTabs' => false,
+      'tabDefs' => 
+      array (
+        'DEFAULT' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+      ),
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -42,31 +51,64 @@ array (
             'name' => 'name',
             'label' => 'LBL_NAME',
           ),
-          1 => 
-          array (
-            'name' => 'precio_ud',
-            'label' => 'LBL_PRECIO_UD',
-          ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'description',
-            'label' => 'LBL_DESCRIPTION',
+            'name' => 'precio_ud',
+            'label' => 'LBL_PRECIO_UD',
           ),
           1 => 
           array (
-            'name' => 'iva',
-            'label' => 'LBL_IVA',
+            'name' => 'tipo_repercutido',
+            'label' => 'LBL_TIPO_IMPUESTO',
           ),
         ),
         2 => 
         array (
           0 => 
           array (
-            'name' => 'factura_name',
+            'name' => 'cantidad',
+            'label' => 'LBL_CANTIDAD',
           ),
+          1 => 
+          array (
+            'name' => 'impuesto',
+            'label' => 'LBL_REPERCUTIDO',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'descuento',
+            'label' => 'LBL_DESCUENTO',
+          ),
+          1 => 
+          array (
+            'name' => 'retencion',
+            'label' => 'LBL_RETENCION',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'description',
+            'label' => 'LBL_DESCRIPTION',
+          ),
+          1 => '',
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'clase_c',
+            'studio' => 'visible',
+            'label' => 'LBL_CLASE',
+          ),
+          1 => '',
         ),
       ),
     ),

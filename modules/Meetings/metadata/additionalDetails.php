@@ -124,7 +124,7 @@ function additionalDetailsMeeting($fields) {
     $precio_prof = getPrecioHora($UserBean->account_id_c, $AccountBean->id);
 	
     $overlib_string .= '<b>'. "<a href='index.php?module=Accounts&action=DetailView&record=".$AccountBean->id."'>" . $AccountBean->name . "</a>". '</b> ';
-    $overlib_string .= ' - Precio: '.$precio_prof;
+    $overlib_string .= ' - Coste: '.$precio_prof;
     $overlib_string .= '<br>';
     
    /* $precio_prof = getPrecioHora('cac7cbf0-3884-919b-aadf-591acc61927b', $AccountBean->id);*/
@@ -134,7 +134,7 @@ function additionalDetailsMeeting($fields) {
 
     $precio_prof_tot = $precio_prof_tot + $precio_prof;
 }
-  $overlib_string .= '<b>'. "Precio Total: ". $precio_prof_tot. '</b>';
+  $overlib_string .= '<b>'. "Coste Total: ". $precio_prof_tot. '</b>';
   
   
 
