@@ -109,7 +109,7 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
         array (
           array (
             'name' => 'name',
-
+            'customCode' => '{if $ReadOnly == "readonly"}<span>{$fields.status.value}</span>{else}{html_options name="status" id="status" options=$fields.status.options selected=$fields.status.value}{/if}',
           ),
           array (
             'name' => 'status',

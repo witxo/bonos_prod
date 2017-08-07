@@ -2,6 +2,18 @@
  //WARNING: The contents of this file are auto-generated
 
 
+// created: 2017-07-27 17:11:14
+$dictionary["Account"]["fields"]["meetings_accounts_1"] = array (
+  'name' => 'meetings_accounts_1',
+  'type' => 'link',
+  'relationship' => 'meetings_accounts_1',
+  'source' => 'non-db',
+  'module' => 'Meetings',
+  'bean_name' => 'Meeting',
+  'vname' => 'LBL_MEETINGS_ACCOUNTS_1_FROM_MEETINGS_TITLE',
+);
+
+
  // created: 2016-10-05 19:06:45
 $dictionary['Account']['fields']['pen_firmado_c']['labelValue']='Firmado';
 

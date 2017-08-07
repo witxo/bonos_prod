@@ -22,6 +22,13 @@ $dictionary['Meeting']['fields']['alumno4_c']['labelValue']='Alumno 4';
 
  
 
+ // created: 2017-07-27 16:20:09
+$dictionary['Meeting']['fields']['fecha_inicio_c']['options']='date_range_search_dom';
+$dictionary['Meeting']['fields']['fecha_inicio_c']['labelValue']='Fecha_InicioBD';
+$dictionary['Meeting']['fields']['fecha_inicio_c']['enable_range_search']='1';
+
+ 
+
  // created: 2017-07-24 17:08:58
 
  
@@ -126,6 +133,18 @@ $dictionary['Meeting']['fields']['bono_validado_c']['labelValue']='Validado';
  // created: 2017-07-24 17:10:30
 
  
+
+// created: 2017-07-27 17:11:14
+$dictionary["Meeting"]["fields"]["meetings_accounts_1"] = array (
+  'name' => 'meetings_accounts_1',
+  'type' => 'link',
+  'relationship' => 'meetings_accounts_1',
+  'source' => 'non-db',
+  'module' => 'Accounts',
+  'bean_name' => 'Account',
+  'vname' => 'LBL_MEETINGS_ACCOUNTS_1_FROM_ACCOUNTS_TITLE',
+);
+
 
  // created: 2017-07-24 17:09:46
 $dictionary['Meeting']['fields']['alumno2_c']['labelValue']='Alumno 2';

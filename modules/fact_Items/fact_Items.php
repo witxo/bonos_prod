@@ -27,6 +27,18 @@ class fact_Items extends fact_Items_sugar {
 	//  * Factura: obliga a la factura asociada a recalcular sus totales
 	function save($check_notify = FALSE){
 	  
+      
+	  if ($this->meeting_id_c != '')
+      {
+        $ClaseBean = BeanFactory::getBean('Meetings', $this->meeting_id_c);
+        
+        if ($ClaseBean->repeat_parent_id != '')
+        {
+        	$this->clasepadre_c = $ClaseBean->repeat_parent_id;
+        }
+        else $this->clasepadre_c = $this->meeting_id_c;
+        
+      }
 	  // Antes de guardar, si no tiene un "Peso" que indique el orden, le ponemos el último
 	  if(!$this->orden && $_POST['relate_id']){
   	  $sql = " SELECT MAX(orden) orden".

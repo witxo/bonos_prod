@@ -55,12 +55,40 @@ class CalendarViewQuickEdit extends SugarView {
 	}
 	
 	public function display(){
+      
+  
+
+if(file_exists('cache/modules/Meetings/CalendarEditView.tpl')) 
+    unlink('cache/modules/Meetings/CalendarEditView.tpl');
+
+
+      
 		require_once("modules/Calendar/CalendarUtils.php");
 		
 		$module = $this->view_object_map['currentModule'];
 		
 		$_REQUEST['module'] = $module;
 				
+       global $current_user;
+      if ($current_user->is_admin <> '1')
+      {
+        
+
+				$base = 'modules/' . $module . '/metadata/';
+		$source = 'custom/'.$base.'quickcreatedefs_ro.php';
+		if (!file_exists($source)){
+			$source = $base . 'quickcreatedefs_ro.php';
+			if (!file_exists($source)){
+				$source = 'custom/' . $base . 'editviewdefs.php';
+				if (!file_exists($source)){
+					$source = $base . 'editviewdefs.php';
+				}
+			}
+		}	
+          
+      }
+      else
+      {
 		$base = 'modules/' . $module . '/metadata/';
 		$source = 'custom/'.$base.'quickcreatedefs.php';
 		if (!file_exists($source)){
@@ -72,6 +100,7 @@ class CalendarViewQuickEdit extends SugarView {
 				}
 			}
 		}
+      }
 		
 		$GLOBALS['mod_strings'] = return_module_language($GLOBALS['current_language'], $module);
         $tpl = $this->getCustomFilePathIfExists('include/EditView/EditView.tpl');
@@ -84,6 +113,22 @@ class CalendarViewQuickEdit extends SugarView {
 		$this->ev->defs['templateMeta']['form']['headerTpl'] = "modules/Calendar/tpls/editHeader.tpl";
 		$this->ev->defs['templateMeta']['form']['footerTpl'] = "modules/Calendar/tpls/empty.tpl";						
 		$this->ev->process(false, "CalendarEditView");		
+      
+   global $current_user;
+
+      if ($current_user->is_admin <> 1)
+      {
+            $this->ev->ss->assign('readOnly', 'readonly = "readonly"');
+                $this->ev->ss->assign('disabled', 'disabled');
+    
+              
+      }
+      else
+      {
+                    $this->ev->ss->assign('readOnly', '');
+                $this->ev->ss->assign('disabled', '');
+     
+      }
 		
 		if(!empty($this->bean->id)){
 			require_once('include/json_config.php');

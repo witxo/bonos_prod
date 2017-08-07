@@ -2,8 +2,8 @@
 $viewdefs ['Meetings'] = 
 array (
   'QuickCreate' => 
-  array (
-    'templateMeta' => 
+ array (
+    'templateMeta' =>
     array (
       'maxColumns' => '2',
       'form' => 
@@ -70,10 +70,14 @@ array (
           0 => 
           array (
             'name' => 'name',
+             
             'displayParams' => 
             array (
               'required' => true,
-            ),
+              
+            ),         
+           
+            
           ),
           1 => 
           array (
@@ -93,6 +97,7 @@ array (
           array (
             'name' => 'date_start',
             'type' => 'datetimecombo',
+            'readonly' => true,
             'displayParams' => 
             array (
               'required' => true,
@@ -107,6 +112,7 @@ array (
           array (
             'name' => 'date_end',
             'type' => 'datetimecombo',
+            'readonly' => true,
             'displayParams' => 
             array (
               'required' => true,
@@ -174,11 +180,13 @@ array (
             'name' => 'alumno1_c',
             'studio' => 'visible',
             'label' => 'LBL_ALUMNO1',
+
           ),
           1 => 
           array (
             'name' => 'asistencia1_c',
             'label' => 'LBL_ASISTENCIA1',
+
           ),
         ),
         1 => 
@@ -188,11 +196,13 @@ array (
             'name' => 'alumno2_c',
             'studio' => 'visible',
             'label' => 'LBL_ALUMNO2',
+
           ),
           1 => 
           array (
             'name' => 'asistencia2_c',
             'label' => 'LBL_ASISTENCIA2',
+
           ),
         ),
         2 => 
@@ -202,11 +212,13 @@ array (
             'name' => 'alumno3_c',
             'studio' => 'visible',
             'label' => 'LBL_ALUMNO3',
+
           ),
           1 => 
           array (
             'name' => 'asistencia3_c',
             'label' => 'LBL_ASISTENCIA3',
+
           ),
         ),
         3 => 
@@ -216,11 +228,13 @@ array (
             'name' => 'alumno4_c',
             'studio' => 'visible',
             'label' => 'LBL_ALUMNO4',
+
           ),
           1 => 
           array (
             'name' => 'asistencia4_c',
             'label' => 'LBL_ASISTENCIA4',
+
           ),
         ),
         4 => 
@@ -230,11 +244,13 @@ array (
             'name' => 'alumno5_c',
             'studio' => 'visible',
             'label' => 'LBL_ALUMNO5',
+
           ),
           1 => 
           array (
             'name' => 'asistencia5_c',
             'label' => 'LBL_ASISTENCIA5',
+
           ),
         ),
         5 => 
@@ -244,11 +260,13 @@ array (
             'name' => 'alumno6_c',
             'studio' => 'visible',
             'label' => 'LBL_ALUMNO6',
+
           ),
           1 => 
           array (
             'name' => 'asistencia6_c',
             'label' => 'LBL_ASISTENCIA6',
+
           ),
         ),
         6 => 
@@ -258,11 +276,13 @@ array (
             'name' => 'alumno7_c',
             'studio' => 'visible',
             'label' => 'LBL_ALUMNO7',
+
           ),
           1 => 
           array (
             'name' => 'asistencia7_c',
             'label' => 'LBL_ASISTENCIA7',
+
           ),
         ),
         7 => 
@@ -272,11 +292,13 @@ array (
             'name' => 'alumno8_c',
             'studio' => 'visible',
             'label' => 'LBL_ALUMNO8',
+
           ),
           1 => 
           array (
             'name' => 'asistencia8_c',
             'label' => 'LBL_ASISTENCIA8',
+
           ),
         ),
         8 => 
@@ -286,11 +308,13 @@ array (
             'name' => 'alumno9_c',
             'studio' => 'visible',
             'label' => 'LBL_ALUMNO9',
+
           ),
           1 => 
           array (
             'name' => 'asistencia9_c',
             'label' => 'LBL_ASISTENCIA9',
+
           ),
         ),
         9 => 
@@ -300,11 +324,13 @@ array (
             'name' => 'alumno10_c',
             'studio' => 'visible',
             'label' => 'LBL_ALUMNO10',
+
           ),
           1 => 
           array (
             'name' => 'asistencia10_c',
             'label' => 'LBL_ASISTENCIA10',
+
           ),
         ),
       ),

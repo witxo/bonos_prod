@@ -73,6 +73,15 @@ class CalendarDisplay {
 	 */
 	public function display(){
 
+      
+         global $current_user;
+
+      if ($current_user->is_admin <> 1)
+      {
+        $this->cal->enable_repeat = false;
+        
+      }
+      
 		global $timedate;
 
 		$cal = &$this->cal;
@@ -102,7 +111,7 @@ class CalendarDisplay {
 
 		$ss->assign('CALENDAR_FORMAT',$GLOBALS['timedate']->get_cal_date_format());
 		$ss->assign('CALENDAR_FDOW',$GLOBALS['current_user']->get_first_day_of_week());
-
+      
 
 		if($cal->style == "basic"){
 			switch($cal->view){
@@ -426,7 +435,18 @@ class CalendarDisplay {
 		if($controls){
 			$current_date = str_pad($this->cal->date_time->month,2,'0',STR_PAD_LEFT)."/".str_pad($this->cal->date_time->day,2,'0',STR_PAD_LEFT)."/".$this->cal->date_time->year;
 
-			$tabs = array('day', 'week', 'month', 'year', 'shared');
+			//$tabs = array('day', 'week', 'month', 'year', 'shared');
+          global $current_user;
+          if ($current_user->is_admin == '1')
+          {
+			$tabs = array('day', 'week', 'month', 'year', 'shared');            
+          }
+          else
+          {
+            $tabs = array('day', 'week', 'month', 'year');
+          }
+          global $current_user;
+
 			$tabs_params = array();
 			foreach($tabs as $tab){
 				$tabs_params[$tab]['title'] = $cal_strings["LBL_".strtoupper($tab)];

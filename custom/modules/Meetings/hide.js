@@ -1,0 +1,1 @@
+$("#date_start_date").prop('readonly', true);  

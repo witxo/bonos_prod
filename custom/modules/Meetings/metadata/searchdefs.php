@@ -5,6 +5,22 @@ array (
   array (
     'basic_search' => 
     array (
+      'date_start' => 
+      array (
+        'type' => 'datetimecombo',
+        'label' => 'LBL_DATE',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'date_start',
+      ),
+      'date_end' => 
+      array (
+        'type' => 'datetimecombo',
+        'label' => 'LBL_DATE_END',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'date_end',
+      ),
       'name' => 
       array (
         'name' => 'name',
@@ -33,6 +49,9 @@ array (
         'default' => true,
         'width' => '10%',
       ),
+    ),
+    'advanced_search' => 
+    array (
       'date_start' => 
       array (
         'type' => 'datetimecombo',
@@ -49,36 +68,9 @@ array (
         'default' => true,
         'name' => 'date_end',
       ),
-      'open_only' => 
-      array (
-        'name' => 'open_only',
-        'label' => 'LBL_OPEN_ITEMS',
-        'type' => 'bool',
-        'default' => true,
-        'width' => '10%',
-      ),
-    ),
-    'advanced_search' => 
-    array (
       'name' => 
       array (
         'name' => 'name',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'parent_name' => 
-      array (
-        'type' => 'parent',
-        'label' => 'LBL_LIST_RELATED_TO',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'parent_name',
-      ),
-      'current_user_only' => 
-      array (
-        'name' => 'current_user_only',
-        'label' => 'LBL_CURRENT_USER_FILTER',
-        'type' => 'bool',
         'default' => true,
         'width' => '10%',
       ),

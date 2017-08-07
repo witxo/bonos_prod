@@ -89,6 +89,7 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
           0 => 
           array (
             'name' => 'name',
+            'customCode' => '<input type="text" title="" value="{$fields.name.value}" id="name" name="name" {$readOnly}>',
           ),
           1 => 
           array (
@@ -178,6 +179,15 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             'comment' => 'Full text of the note',
             'label' => 'LBL_DESCRIPTION',
           ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'fecha_inicio_c',
+            'label' => 'LBL_FECHA_INICIO',
+          ),
+          1 => '',
         ),
       ),
       'LBL_PANEL_ASSIGNMENT' => 

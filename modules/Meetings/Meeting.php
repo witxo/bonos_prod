@@ -160,6 +160,74 @@ class Meeting extends SugarBean {
 		global $current_user;
 
 		global $disable_date_format;
+      
+//      print_r ($this);
+      
+
+//If relationship is loaded
+if ($this->load_relationship('meetings_accounts_1'))
+{
+    //Fetch related beans 
+      //Fetch related beans 
+    $relatedBeans = $this->meetings_accounts_1->getBeans();
+  
+  foreach($relatedBeans as $classbean){
+    $this->meetings_accounts_1->delete($this->id, $classbean->id);
+    //$this->save();
+    //print_r($this->id);
+          //Set deleted to true
+
+}
+  //print_r($this);
+    if ($this->account_id_c != '')
+    {
+      $this->meetings_accounts_1->add($this->account_id_c);
+    }
+    if ($this->account_id1_c != '')
+    {
+      $this->meetings_accounts_1->add($this->account_id1_c);
+    }  
+    if ($this->account_id2_c != '')
+    {
+      $this->meetings_accounts_1->add($this->account_id2_c);
+    }  
+    if ($this->account_id3_c != '')
+    {
+      $this->meetings_accounts_1->add($this->account_id3_c);
+    }  
+    if ($this->account_id4_c != '')
+    {
+      $this->meetings_accounts_1->add($this->account_id4_c);
+    }  
+    if ($this->account_id5_c != '')
+    {
+      $this->meetings_accounts_1->add($this->account_id5_c);
+    }  
+    if ($this->account_id6_c != '')
+    {
+      $this->meetings_accounts_1->add($this->account_id6_c);
+    }  
+    if ($this->account_id7_c != '')
+    {
+      $this->meetings_accounts_1->add($this->account_id7_c);
+    }  
+    if ($this->account_id8_c != '')
+    {
+      $this->meetings_accounts_1->add($this->account_id8_c);
+    }  
+    if ($this->account_id9_c != '')
+    {
+      $this->meetings_accounts_1->add($this->account_id9_c);
+    }  
+
+
+
+
+  
+  
+  
+}
+    // exit;
 
         if(isset($this->date_start))
         {
@@ -181,6 +249,11 @@ class Meeting extends SugarBean {
                 $this->date_end = $td->asDb();
             }
         }
+      
+      $myDateTime = DateTime::createFromFormat('Y-m-d h:i:s', $this->date_start);
+$newDateString = $myDateTime->format('Y-m-d');
+      
+      $this->fecha_inicio_c = $newDateString;
 
 		$check_notify =(!empty($_REQUEST['send_invites']) && $_REQUEST['send_invites'] == '1') ? true : false;
 		if(empty($_REQUEST['send_invites'])) {

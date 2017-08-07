@@ -263,8 +263,8 @@
 		<button id="btn-save" class="button" type="button">{$MOD.LBL_SAVE_BUTTON}</button>
 		<button id="btn-cancel" class="button" type="button">{$MOD.LBL_CANCEL_BUTTON}</button>
 		<button id="btn-delete" class="button" type="button">{$MOD.LBL_DELETE_BUTTON}</button>
-		<button id="btn-send-invites" class="button" type="button">{$MOD.LBL_SEND_INVITES}</button>
-		<button id="btn-full-form" class="button" type="button">{$APP.LBL_FULL_FORM_BUTTON_LABEL}</button>
+		<button id="btn-send-invites" class="button" type="button"  hidden="hidden">{$MOD.LBL_SEND_INVITES}</button>
+		<button id="btn-full-form" class="button" type="button"  hidden="hidden">{$APP.LBL_FULL_FORM_BUTTON_LABEL}</button>
 	</div>
 </div>
 

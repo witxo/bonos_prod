@@ -1,5 +1,5 @@
 <?php
-// created: 2017-07-25 15:48:11
+// created: 2017-07-27 18:21:18
 $searchFields['Meetings'] = array (
   'name' => 
   array (
@@ -121,6 +121,42 @@ $searchFields['Meetings'] = array (
     'is_date_field' => true,
   ),
   'end_range_date_end' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+    'is_date_field' => true,
+  ),
+  'range_fecha_inicio' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+    'is_date_field' => true,
+  ),
+  'start_range_fecha_inicio' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+    'is_date_field' => true,
+  ),
+  'end_range_fecha_inicio' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+    'is_date_field' => true,
+  ),
+  'range_fecha_inicio_c' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+    'is_date_field' => true,
+  ),
+  'start_range_fecha_inicio_c' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+    'is_date_field' => true,
+  ),
+  'end_range_fecha_inicio_c' => 
   array (
     'query_type' => 'default',
     'enable_range_search' => true,

@@ -4,27 +4,39 @@ $popupMeta = array (
     'varName' => 'Meeting',
     'orderBy' => 'meetings.name',
     'whereClauses' => array (
-  'date_start' => 'meetings.date_start',
   'status' => 'meetings.status',
   'assigned_user_id' => 'meetings.assigned_user_id',
+  'alumno1_c' => 'meetings.alumno1_c',
+  'fecha_inicio_c' => 'meetings_cstm.fecha_inicio_c',
 ),
     'searchInputs' => array (
   3 => 'status',
-  4 => 'date_start',
   6 => 'assigned_user_id',
+  7 => 'alumno1_c',
+  9 => 'fecha_inicio_c',
 ),
     'searchdefs' => array (
-  'date_start' => 
+  'fecha_inicio_c' => 
   array (
-    'type' => 'datetimecombo',
-    'label' => 'LBL_DATE',
+    'type' => 'date',
+    'label' => 'LBL_FECHA_INICIO',
     'width' => '10%',
-    'name' => 'date_start',
+    'name' => 'fecha_inicio_c',
   ),
   'status' => 
   array (
     'name' => 'status',
     'width' => '10%',
+  ),
+  'alumno1_c' => 
+  array (
+    'type' => 'relate',
+    'studio' => 'visible',
+    'label' => 'LBL_ALUMNO1',
+    'id' => 'ACCOUNT_ID_C',
+    'link' => true,
+    'width' => '10%',
+    'name' => 'alumno1_c',
   ),
   'assigned_user_id' => 
   array (

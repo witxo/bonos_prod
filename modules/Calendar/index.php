@@ -63,7 +63,13 @@ $_SESSION['CALENDAR_VIEW'] = $_REQUEST['view'];
 $cal = new Calendar($_REQUEST['view']);
 
 if(in_array($cal->view,array('day','week','month'))){
-	$cal->add_activities($GLOBALS['current_user']);	
+	$cal->add_activities($GLOBALS['current_user']);
+ 
+
+  
+ // $bean = BeanFactory::getBean('Users', 'f49b0609-d137-8ddc-347c-59775f2c7a2e');
+  //$cal->add_activities($bean);
+	
 }else if($cal->view == 'shared'){
 	$cal->init_shared();	
 	global $shared_user;				

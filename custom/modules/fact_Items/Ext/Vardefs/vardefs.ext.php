@@ -12,6 +12,11 @@ $dictionary['fact_Items']['fields']['tipo']['reportable']=true;
 
  
 
+ // created: 2017-07-27 16:51:56
+$dictionary['fact_Items']['fields']['clasepadre_c']['labelValue']='clasepadre';
+
+ 
+
  // created: 2017-07-25 15:43:32
 $dictionary['fact_Items']['fields']['clase_c']['labelValue']='Clase';
 

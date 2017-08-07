@@ -385,7 +385,8 @@ class CalendarGrid {
 		$user_number = 0;
 
 		$shared_user = new User();
-		foreach($this->cal->shared_ids as $member_id){
+		foreach($this->cal->shared_ids as $member_id)
+        {
 
 			$user_number_str = "_".$user_number;
 
@@ -411,6 +412,10 @@ class CalendarGrid {
 
 		return $str;
 	}
+  
+  
+  
+
 
 	/**
 	 * Get html of year calendar

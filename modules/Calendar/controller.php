@@ -301,7 +301,13 @@ class CalendarController extends SugarController
         $cal = new Calendar($_REQUEST['view']);
         
         if (in_array($cal->view, array('day', 'week', 'month'))){
-            $cal->add_activities($GLOBALS['current_user']);    
+            //$cal->add_activities($GLOBALS['current_user']);    
+           $cal->init_shared();
+            $sharedUser = new User();    
+            foreach ($cal->shared_ids as $member) {
+                $sharedUser->retrieve($member);
+                $cal->add_activities($sharedUser);
+            }
        
         } else if ($cal->view == 'shared') {
             $cal->init_shared();

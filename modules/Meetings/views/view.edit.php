@@ -52,7 +52,6 @@ class MeetingsViewEdit extends ViewEdit
  		if(!empty($_REQUEST['status']) && ($_REQUEST['status'] == 'Held')) {
 	       $this->bean->status = 'Held';
  		}
-
  		parent::preDisplay();
  	}
 
@@ -61,6 +60,25 @@ class MeetingsViewEdit extends ViewEdit
  	 */
  	public function display()
  	{
+      
+      global $current_user;
+      
+      if ($current_user->is_admin <> 1)
+      {
+            $this->ev->ss->assign('readOnly', 'readonly = "readonly"');
+                $this->ev->ss->assign('disabled', 'disabled');
+        $this->ev->ss->assign('hide', 'hide.js');
+      }
+      else
+      {
+                    $this->ev->ss->assign('readOnly', '');
+                $this->ev->ss->assign('disabled', '');
+        $this->ev->ss->assign('hide', 'hide0.js');
+      }
+		
+
+
+      
  		global $json;
         $json = getJSONobj();
         $json_config = new json_config();

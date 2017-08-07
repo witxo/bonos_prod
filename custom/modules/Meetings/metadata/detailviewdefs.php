@@ -151,6 +151,15 @@ array (
         array (
           0 => 'description',
         ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'fecha_inicio_c',
+            'label' => 'LBL_FECHA_INICIO',
+          ),
+          1 => '',
+        ),
       ),
       'LBL_PANEL_ASSIGNMENT' => 
       array (
