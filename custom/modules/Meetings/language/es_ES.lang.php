@@ -1,5 +1,5 @@
 <?php
-// created: 2017-07-27 16:20:09
+// created: 2017-08-23 19:19:55
 $mod_strings = array (
   'LBL_BONO_BONOS_BONOS_ID' => 'Bono (relacionado  ID)',
   'LBL_BONO' => 'Bono',
@@ -46,4 +46,5 @@ $mod_strings = array (
   'LBL_ASISTENCIA10' => 'Asistencia Alum 10',
   'LBL_LIST_ASSIGNED_TO_NAME' => 'Profesor',
   'LBL_FECHA_INICIO' => 'Fecha_InicioBD',
+  'LBL_PRECIO' => 'Precio',
 );

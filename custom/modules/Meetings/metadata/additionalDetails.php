@@ -40,6 +40,8 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 require_once('custom/funciones.php');
 
 function additionalDetailsMeeting($fields) {
+  
+    global $current_user;
 	static $mod_strings;
 	if(empty($mod_strings)) {
 		global $current_language;
@@ -116,15 +118,38 @@ for ($i = 0; $i < 10; $i++)
     	$precio_prof = getPrecioHora($UserBean->account_id_c, $AccountBean->id);   
       
         $precio_prof_tot = $precio_prof_tot + $precio_prof;
-      
+
+    
+     if ($current_user->is_admin <> 1)
+      {
+ 		$overlib_string .= '<p><b>'.  $AccountBean->name . ': </b></p> ';
+
+ 		$overlib_string .= '<p>'.  $AccountBean->billing_address_street . '</p> ';
+ 		$overlib_string .= '<p>'.  $AccountBean->billing_address_postalcode . ' - ' . $AccountBean->billing_address_city . '</p> ';
+ 		$overlib_string .= '<p>'.  $AccountBean->billing_address_state . ' (' . $AccountBean->billing_address_country . ') </p> ';
+ 		
+       
+       
+       
+
+      }
+      else
+      {
  		$overlib_string .= '<b>'. "<a href='index.php?module=Accounts&action=DetailView&record=".$AccountBean->id."'>" . $AccountBean->name . "</a>". '</b> ';
     	$overlib_string .= ' - Coste: '.$precio_prof;
     	$overlib_string .= '<br>';
+      }
     }  
 }  
 
     
-  
+       if ($current_user->is_admin <> 1)
+      {
+
+
+      }
+      else
+      {
   $sueldo_profe = getSueldoMes ($UserBean->account_id_c, 7);
   $ss_profe = getSSMes ($UserBean->account_id_c, 7);
   $irpf_profe = getIRPFMes ($UserBean->account_id_c, 7);
@@ -161,7 +186,7 @@ $duracion_min = $fields['DURATION_HOURS']*60  + $fields['DURATION_MINUTES'];
   }
 
   
- 
+      }
 
 
   

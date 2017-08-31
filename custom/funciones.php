@@ -160,5 +160,151 @@ $row = $db->fetchByAssoc($result);
     }
   
 }
+
+function selecProfesores(){
+  $ret = array();
+
+    $db = new DBConnection();
+	$db2 = $db->getCRMConnection();
+mysql_set_charset('utf8',$db2);
+    $db->getCRMConnection();
+
+    $sql = "select * from accounts inner join users_cstm on id = account_id_c  where account_type ='Teacher' and deleted = 0 order by name";
+$handle = mysql_query($sql);
+    //echo($sql);
+
+	 echo "<option value =''></option>";
+while ($row = mysql_fetch_object($handle)) {
+    //echo $sql;
+ 
+ echo "<option value ='".$row->id_c."'>".$row->name."</option>";
+}
+
+
+
+}
+
+
+function getBonoValidadoClase($id){
+  $ret = array();
+
+    $db = new DBConnection();
+	$db2 = $db->getCRMConnection();
+mysql_set_charset('utf8',$db2);
+    $db->getCRMConnection();
+    $sql = "select bono_validado_c from meetings_cstm where id_c ='".$id."'";
+    //echo($sql);
+
+
+    $handle = mysql_query($sql);
+    //echo $sql;
+    $row = mysql_fetch_object($handle);
+    return $row->bono_validado_c;
+
+
+}
+
+
+function getBonoClase($id){
+  $ret = array();
+
+    $db = new DBConnection();
+	$db2 = $db->getCRMConnection();
+mysql_set_charset('utf8',$db2);
+    $db->getCRMConnection();
+    $sql = "select name from meetings_cstm inner join bonos_bonos on id = bonos_bonos_id_c where id_c ='".$id."'";
+    //echo($sql);
+
+
+    $handle = mysql_query($sql);
+    //echo $sql;
+    $row = mysql_fetch_object($handle);
+    return $row->name;
+
+
+}
+
+
+
+function getGrupoAlumno($id){
+  $ret = array();
+
+    $db = new DBConnection();
+	$db2 = $db->getCRMConnection();
+mysql_set_charset('utf8',$db2);
+    $db->getCRMConnection();
+    $sql = "select grupo_c from accounts inner join accounts_cstm on id = id_c where id ='".$id."'";
+    //echo($sql);
+
+
+    $handle = mysql_query($sql);
+    //echo $sql;
+    $row = mysql_fetch_object($handle);
+    return $row->grupo_c;
+
+
+}
+
+
+function _settimezone($time,$defaultzone,$newzone)
+{
+$date = new DateTime($time, new DateTimeZone($defaultzone));
+$date->setTimezone(new DateTimeZone($newzone));
+$result=$date->format('d-m-Y H:i:s');
+return $result;
+}
+
+
+function getPrecioHoraDB($profe, $alum){
+  $ret = array();
+
+    $db = new DBConnection();
+	$db2 = $db->getCRMConnection();
+mysql_set_charset('utf8',$db2);
+    $db->getCRMConnection();
+    $sql = "select amount from preci_precios where deleted = 0 and account_id_c ='".$profe."' and account_id1_c = '".$alum."'";
+	//echo "<p>";
+   // echo($sql);
+	
+
+
+    $handle = mysql_query($sql);
+    //echo $sql;
+    $row = mysql_fetch_object($handle);
+	
+	if ($row == false)
+		return 0;
+	else  return $row->amount;
+
+
+}
+
+function getBonoUsado ($numbono)
+{
+      $db = new DBConnection();
+	$db2 = $db->getCRMConnection();
+mysql_set_charset('utf8',$db2);
+    $db->getCRMConnection();
+  
+    $sql = "SELECT * FROM bonos_bonos inner join meetings_cstm on bonos_bonos.id = meetings_cstm.bonos_bonos_id_c inner join meetings on meetings.id = meetings_cstm.id_c where bonos_bonos.name='".$numbono."' and meetings.deleted = 0;";
+
+	
+
+
+    $handle = mysql_query($sql);
+    echo $sql;
+    $row = mysql_fetch_object($handle);
+	
+	if ($row == false)
+    {
+		return 0;
+    }
+    else
+    {
+    	return $row->id_c;
+     }
+  
+}
+
   
   ?>

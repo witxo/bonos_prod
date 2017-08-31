@@ -44,6 +44,8 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  ********************************************************************************/
 
 require_once('include/SugarObjects/forms/FormBase.php');
+require_once('custom/funciones.php');
+require_once('custom/dbconfig.php');
 
 class MeetingFormBase extends FormBase {
 
@@ -176,7 +178,28 @@ function handleSave($prefix,$redirect=true, $useRequired=false) {
 	global $timedate;
 
 	$focus = new Meeting();
+  if ($_POST['bono_c'] != '')	$bonousado = getBonoUsado($_POST['bono_c']);
+ 
+      if (($current_user->is_admin <> '1') and ($_POST['bono_validado_c'] == '1'))
+      {  
+        SugarApplication::appendErrorMessage('El bono ya esta validado. No se puede guardar.');
+        return null;
+      }
+      elseif ($bonousado != 0 and $bonousado != $_POST['record'])
+      {        
+        SugarApplication::appendErrorMessage('El bono ya se ha utilizado en otra clase.');
 
+//$queryParams = array(
+//    'module' => 'Calendar',
+//    'action' => 'index',
+//  	'record_id' => $_POST['record'],);
+SugarApplication::redirect('index.php?' . http_build_query($queryParams));        
+        
+        
+      }
+    
+  
+  
 	if($useRequired && !checkRequired($prefix, array_keys($focus->required_fields))) {
 		return null;
 	}

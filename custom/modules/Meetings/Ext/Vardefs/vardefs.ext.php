@@ -88,6 +88,11 @@ $dictionary['Meeting']['fields']['asistencia5_c']['labelValue']='asistencia5';
 
  
 
+ // created: 2017-08-23 19:19:53
+$dictionary['Meeting']['fields']['precio_c']['labelValue']='Precio';
+
+ 
+
  // created: 2017-07-24 17:10:15
 
  
@@ -104,6 +109,10 @@ $dictionary['Meeting']['fields']['alumno6_c']['labelValue']='Alumno 6';
 
  // created: 2017-07-24 17:11:23
 $dictionary['Meeting']['fields']['alumno8_c']['labelValue']='Alumno 8';
+
+ 
+
+ // created: 2017-08-23 19:19:55
 
  
 
