@@ -60,6 +60,17 @@ array (
         'default' => true,
         'name' => 'date_start',
       ),
+      'bono_c' => 
+      array (
+        'type' => 'relate',
+        'default' => true,
+        'studio' => 'visible',
+        'label' => 'LBL_BONO',
+        'id' => 'BONOS_BONOS_ID_C',
+        'link' => true,
+        'width' => '10%',
+        'name' => 'bono_c',
+      ),
       'date_end' => 
       array (
         'type' => 'datetimecombo',

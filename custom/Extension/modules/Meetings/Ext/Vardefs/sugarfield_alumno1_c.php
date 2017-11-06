@@ -1,5 +1,5 @@
 <?php
- // created: 2017-07-24 17:08:58
+ // created: 2017-09-03 14:37:03
 $dictionary['Meeting']['fields']['alumno1_c']['labelValue']='Alumno 1';
 
  ?>

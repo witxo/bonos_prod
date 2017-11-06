@@ -178,6 +178,7 @@ if ($this->load_relationship('meetings_accounts_1'))
           //Set deleted to true
 
 }
+  	$this->meetings_accounts_1->add($this->assigned_user_id);
   //print_r($this);
     if ($this->account_id_c != '')
     {
@@ -250,9 +251,8 @@ if ($this->load_relationship('meetings_accounts_1'))
             }
         }
       
-      $myDateTime = DateTime::createFromFormat('Y-m-d h:i:s', $this->date_start);
-$newDateString = $myDateTime->format('Y-m-d');
-      
+      $myDateTime = date_create($this->date_start);
+      $newDateString = date_format($myDateTime, 'Y-m-d');
       $this->fecha_inicio_c = $newDateString;
 
 		$check_notify =(!empty($_REQUEST['send_invites']) && $_REQUEST['send_invites'] == '1') ? true : false;

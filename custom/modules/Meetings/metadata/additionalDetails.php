@@ -41,8 +41,13 @@ require_once('custom/funciones.php');
 
 function additionalDetailsMeeting($fields) {
   
+  
+  //print_r ($fields);
     global $current_user;
 	static $mod_strings;
+  
+  $mes = substr($fields['DATE_START'], 3, 2);
+  
 	if(empty($mod_strings)) {
 		global $current_language;
 		$mod_strings = return_module_language($current_language, 'Meetings');
@@ -96,7 +101,14 @@ for ($i = 0; $i < 10; $i++)
     $precio_prof = 0;
     if ($cabecera == 0)
     {
+      if ($fields['NODIR_C'] != true)
+      {
        $overlib_string .= '<br><u>Alumnos:</u><br>';
+      }
+      else
+      {
+        $overlib_string .= '<br><u>Alumnos (Clase en la academia):</u><br>';
+      }
       $cabecera = 1;
     }
   
@@ -121,13 +133,19 @@ for ($i = 0; $i < 10; $i++)
 
     
      if ($current_user->is_admin <> 1)
-      {
+     {
+       if ($fields['NODIR_C'] != true)
+       {
  		$overlib_string .= '<p><b>'.  $AccountBean->name . ': </b></p> ';
 
  		$overlib_string .= '<p>'.  $AccountBean->billing_address_street . '</p> ';
  		$overlib_string .= '<p>'.  $AccountBean->billing_address_postalcode . ' - ' . $AccountBean->billing_address_city . '</p> ';
  		$overlib_string .= '<p>'.  $AccountBean->billing_address_state . ' (' . $AccountBean->billing_address_country . ') </p> ';
- 		
+       }
+       else
+       {
+         $overlib_string .= '<p><b>'.  $AccountBean->name . '</b></p> ';
+       }
        
        
        
@@ -135,8 +153,11 @@ for ($i = 0; $i < 10; $i++)
       }
       else
       {
+         $horasalumno = getHorasAlumnoAsignaturaCRM ($AccountBean->id, $fields['NAME'], $mes);
+         $ingresoalumno = getIngresoAlumnoAsignaturaCRM ($AccountBean->id, $fields['NAME'], $mes);
+        
  		$overlib_string .= '<b>'. "<a href='index.php?module=Accounts&action=DetailView&record=".$AccountBean->id."'>" . $AccountBean->name . "</a>". '</b> ';
-    	$overlib_string .= ' - Coste: '.$precio_prof;
+    	$overlib_string .= ' - Horas/Mes: '.$horasalumno. ' // Ingreso/Mes: '.$ingresoalumno;
     	$overlib_string .= '<br>';
       }
     }  
@@ -150,13 +171,15 @@ for ($i = 0; $i < 10; $i++)
       }
       else
       {
-  $sueldo_profe = getSueldoMes ($UserBean->account_id_c, 7);
-  $ss_profe = getSSMes ($UserBean->account_id_c, 7);
-  $irpf_profe = getIRPFMes ($UserBean->account_id_c, 7);
+        
+        
+  $sueldo_profe = getSueldoMesCRM ($UserBean->account_id_c, $mes);
+  $ss_profe = getSSMesCRM ($UserBean->account_id_c, $mes);
+  $irpf_profe = getIRPFMesCRM ($UserBean->account_id_c, $mes);
   $gastos_profe = $sueldo_profe + $ss_profe + $irpf_profe;
   
   
-  $horas_profe = getHorasProfe ($UserBean->account_id_c, 7);
+  $horas_profe = getHorasProfe ($UserBean->account_id_c, $mes);
   
   $coste_profe_hora = $gastos_profe / $horas_profe;
     $overlib_string .= '<br><b>'. "Gastos Profe: ". round($gastos_profe, 2). '</b>';   

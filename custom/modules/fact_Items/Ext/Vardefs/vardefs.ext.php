@@ -6,6 +6,11 @@
 
  
 
+ // created: 2017-09-06 12:49:21
+$dictionary['fact_Items']['fields']['clase2_c']['labelValue']='Clase';
+
+ 
+
  // created: 2011-08-09 20:09:59
 $dictionary['fact_Items']['fields']['tipo']['default']='apoyo';
 $dictionary['fact_Items']['fields']['tipo']['reportable']=true;

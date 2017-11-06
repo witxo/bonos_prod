@@ -49,6 +49,12 @@ array (
     'label' => 'LBL_TOTAL_IVA',
     'width' => '10%',
   ),
+  'RETENCION' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_RETENCION',
+    'default' => true,
+  ),
   'ESTADO' => 
   array (
     'width' => '10%',
@@ -108,12 +114,6 @@ array (
   array (
     'width' => '10%',
     'label' => 'LBL_IVA',
-    'default' => false,
-  ),
-  'RETENCION' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_RETENCION',
     'default' => false,
   ),
   'ASSIGNED_USER_NAME' => 

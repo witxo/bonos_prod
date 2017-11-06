@@ -61,11 +61,50 @@
 ?>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 </head>
-<body>
+  		<link rel="stylesheet" type="text/css" href="custom/css/default.css" />
+		<link rel="stylesheet" type="text/css" href="custom/css/jquery-ui-1.7.2.css" />
+  		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+ 	<script type="text/javascript">
+jQuery(function($){
+	$.datepicker.regional['es'] = {
+		closeText: 'Cerrar',
+		prevText: '&#x3c;Ant',
+		nextText: 'Sig&#x3e;',
+		currentText: 'Hoy',
+		monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
+		'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+		monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun',
+		'Jul','Ago','Sep','Oct','Nov','Dic'],
+		dayNames: ['Domingo','Lunes','Martes','Mi&eacute;rcoles','Jueves','Viernes','S&aacute;bado'],
+		dayNamesShort: ['Dom','Lun','Mar','Mi&eacute;','Juv','Vie','S&aacute;b'],
+		dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','S&aacute;'],
+		weekHeader: 'Sm',
+		dateFormat: 'yy/mm/dd',
+		firstDay: 1,
+		isRTL: false,
+		showMonthAfterYear: false,
+		yearSuffix: ''};
+	$.datepicker.setDefaults($.datepicker.regional['es']);
+});    
+
+$(document).ready(function(){
+  $("#fechainicio").datepicker({ 
+       showOn: 'button', 
+       buttonText: "Seleccionar" });
+ });
+
+ $(document).ready(function(){
+  $("#fechafin").datepicker({ 
+       showOn: 'button', 
+       buttonText: "Seleccionar" });
+ });
+ 
+    </script>
+  
 <body>
 
-<html>
-<body>
+
 <div id="Aplicacion">
   <h1>Ivema - Informe de clases</h1></div>
 <p>&nbsp;</p>
@@ -91,31 +130,14 @@
 	<?php selecProfesores(); ?>
    </select>
    
-      <select name ='mes' id='mes'>
-    <option value='1'>Enero</option>
-    <option value='2'>Febrero</option>
-    <option value='3'>Marzo</option>
-    <option value='4'>Abril</option>
-    <option value='5'>Mayo</option>
-    <option value='6'>Junio</option>
-    <option value='7'>Julio</option>
-    <option value='8'>Agosto</option>
-    <option value='9'>Septiembre</option>
-    <option value='10'>Octubre</option>
-    <option value='11'>Noviembre</option>
-    <option value='12'>Diciembre</option>
-    </select> 
-   
-     <select name="anio" id="anio">
-				<?php
-					for($anio=(date("Y")+1); 2015<=$anio; $anio--) {
-                      if ($anio == date("Y"))
-                        echo "<option value='".$anio."' selected='selected'>".$anio."</option>";
-                      else                   
-				echo "<option value='".$anio."'>".$anio."</option>";
-						}
-				?>
-			</select> 
+
+   <label> Seleccionar Fecha Inicio:</label>
+<input type="text" name="fechainicio" id="fechainicio" readonly="readonly" size="12" />
+<br><br>
+   <label> Seleccionar Fecha Fin:</label>
+<input type="text" name="fechafin" id="fechafin" readonly="readonly" size="12" />
+<br><br>   
+
   <INPUT type="submit" value="Enviar">
 </FORM>
 

@@ -5,14 +5,17 @@ array (
   array (
     'templateMeta' => 
     array (
-            'includes' => array (
-                array (
-                    'file' => 'custom/underscore-min.js',
-                ),
-                array (
-                    'file' => 'custom/modules/Meetings/customValidation.js',
-                ),
-            ),
+      'includes' => 
+      array (
+        0 => 
+        array (
+          'file' => 'custom/underscore-min.js',
+        ),
+        1 => 
+        array (
+          'file' => 'custom/modules/Meetings/customValidation.js',
+        ),
+      ),
       'maxColumns' => '2',
       'form' => 
       array (
@@ -77,7 +80,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'name',
+            'name' => 'nombre_c',
             'displayParams' => 
             array (
               'required' => true,
@@ -108,11 +111,11 @@ array (
               'updateCallback' => 'SugarWidgetScheduler.update_time();',
             ),
           ),
-          1 => 
+         1 => 
           array (
             'name' => 'precio_c',
             'label' => 'LBL_PRECIO',
-          ),
+          ),          
         ),
         2 => 
         array (
@@ -163,13 +166,21 @@ array (
         ),
         4 => 
         array (
+          1 => 
+          array (
+            'name' => 'nodir_c',
+            'label' => 'LBL_NODIR',
+          ),
+        ),
+        5 => 
+        array (
           0 => 
           array (
             'name' => 'assigned_user_name',
             'label' => 'LBL_ASSIGNED_TO_NAME',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (

@@ -56,6 +56,20 @@ class CalendarDisplay {
 			'border' => '#015900',
 			'body' => '#B1F5AE',
 		),
+      
+        // Added next several lines for meeting status color
+        'Planned' => array(
+            'border' => '#F7FE2E',
+            'body'   => '#F7FE2E',
+            ),
+        'Held' => array(
+            'border' => '#82FA58',
+            'body'   => '#82FA58',
+            ),
+        'Not Held' => array(
+            'border' => '#FE2E2E',
+            'body'   => '#FE2E2E',
+            ),      
 	);
 
 	/**
@@ -152,6 +166,16 @@ class CalendarDisplay {
 		$json_config = new json_config();
 		$ss->assign('GRjavascript',$json_config->get_static_json_server(false, true, 'Meetings'));
 
+      	global $current_user;
+       if ($current_user->is_admin == '1')
+       {
+         $isadmin = 'true';
+       }
+       else
+       {
+         $isadmin = 'false';
+       }
+       $ss->assign('isadmin',$isadmin);    
 		// form
 		$user_default_date_start  = $timedate->asUser($timedate->getNow());
 		$ss->assign('user_default_date_start',$user_default_date_start);
@@ -437,12 +461,12 @@ class CalendarDisplay {
 
 			//$tabs = array('day', 'week', 'month', 'year', 'shared');
           global $current_user;
-          if ($current_user->is_admin == '1')
+          if (($current_user->is_admin == '1') || ($current_user->calendario_c == '1'))
           {
 			$tabs = array('day', 'week', 'month', 'year', 'shared');            
           }
           else
-          {
+          {            
             $tabs = array('day', 'week', 'month', 'year');
           }
           global $current_user;

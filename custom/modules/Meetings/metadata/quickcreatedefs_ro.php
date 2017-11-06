@@ -114,12 +114,12 @@ array (
             'name' => 'bono_c',
             'studio' => 'visible',
             'label' => 'LBL_BONO',
-          ),
+           ),
           1 => 
           array (
             'name' => 'bono_validado_c',
             'label' => 'LBL_BONO_VALIDADO',
-            'customCode' => '<input type="hidden" name="bono_validado_c" value="{$fields.bono_validado_c.value}"><input type="checkbox" id="bono_validado_c" name="bono_validado_c" value="1" {if $fields.bono_validado_c.value == "1"} checked {/if} {$disabled}>',
+            'customCode' => '<input type="hidden" name="bono_validado_c" id="bono_validado_c" value="{$fields.bono_validado_c.value}"><input type="checkbox" id="bono_validado_c" name="bono_validado_c" value="1" {if $fields.bono_validado_c.value == "1"} checked {/if} {$disabled}>',
           ),
         ),
         4 => 
@@ -151,13 +151,13 @@ array (
             'name' => 'alumno1_c',
             'studio' => 'visible',
             'label' => 'LBL_ALUMNO1',
-            'customCode' => '<input type="text" title="" value="{$fields.alumno1_c.value}" id="alumno1_c" name="alumno1_c" {$readOnly}>',
+            'customCode' => '<input type="hidden" name="account_id_c" id="account_id_c"  value="{$fields.account_id_c.value}"><input type="text" title="" value="{$fields.alumno1_c.value}" id="alumno1_c" name="alumno1_c" {$readOnly}>',
           ),
           1 => 
           array (
             'name' => 'asistencia1_c',
             'label' => 'LBL_ASISTENCIA1',
-             'customCode' => '<input type="hidden" name="asistencia1_c" value="$fields.asistencia1_c.value"><input type="checkbox" id="asistencia1_c" name="asistencia1_c" value="1" {if $fields.asistencia1_c.value == "1"} checked {/if} {$disabled}>',
+            //'customCode' => '<input type="hidden" name="asistencia1_c" value="{$fields.asistencia1_c.value}"><input type="checkbox" id="asistencia1_c" name="asistencia1_c" value="1" {if $fields.asistencia1_c.value == "1"} checked {/if} {$disabled}>',
           ),
         ),
         1 => 
@@ -173,7 +173,7 @@ array (
           array (
             'name' => 'asistencia2_c',
             'label' => 'LBL_ASISTENCIA2',
-            'customCode' => '<input type="hidden" name="asistencia2_c" value="$fields.asistencia2_c.value"><input type="checkbox" id="asistencia2_c" name="asistencia2_c" value="1" {if $fields.asistencia2_c.value == "1"} checked {/if} {$disabled}>',
+            //'customCode' => '<input type="hidden" name="asistencia2_c" value="{$fields.asistencia2_c.value}"><input type="checkbox" id="asistencia2_c" name="asistencia2_c" value="1" {if $fields.asistencia2_c.value == "1"} checked {/if} {$disabled}>',
           ),
         ),
         2 => 
@@ -189,7 +189,7 @@ array (
           array (
             'name' => 'asistencia3_c',
             'label' => 'LBL_ASISTENCIA3',
-            'customCode' => '<input type="hidden" name="asistencia3_c" value="$fields.asistencia3_c.value"><input type="checkbox" id="asistencia3_c" name="asistencia3_c" value="1" {if $fields.asistencia3_c.value == "1"} checked {/if} {$disabled}>',
+            //'customCode' => '<input type="hidden" name="asistencia3_c" value="{$fields.asistencia3_c.value}"><input type="checkbox" id="asistencia3_c" name="asistencia3_c" value="1" {if $fields.asistencia3_c.value == "1"} checked {/if} {$disabled}>',
           ),
         ),
         3 => 
@@ -205,7 +205,7 @@ array (
           array (
             'name' => 'asistencia4_c',
             'label' => 'LBL_ASISTENCIA4',
-            'customCode' => '<input type="hidden" name="asistencia4_c" value="$fields.asistencia4_c.value"><input type="checkbox" id="asistencia4_c" name="asistencia4_c" value="1" {if $fields.asistencia4_c.value == "1"} checked {/if} {$disabled}>',
+            //'customCode' => '<input type="hidden" name="asistencia4_c" value="{$fields.asistencia4_c.value}"><input type="checkbox" id="asistencia4_c" name="asistencia4_c" value="1" {if $fields.asistencia4_c.value == "1"} checked {/if} {$disabled}>',
           ),
         ),
         4 => 
@@ -221,7 +221,7 @@ array (
           array (
             'name' => 'asistencia5_c',
             'label' => 'LBL_ASISTENCIA5',
-            'customCode' => '<input type="hidden" name="asistencia5_c" value="$fields.asistencia5_c.value"><input type="checkbox" id="asistencia5_c" name="asistencia5_c" value="1" {if $fields.asistencia5_c.value == "1"} checked {/if} {$disabled}>',
+            //'customCode' => '<input type="hidden" name="asistencia5_c" value="{$fields.asistencia5_c.value}"><input type="checkbox" id="asistencia5_c" name="asistencia5_c" value="1" {if $fields.asistencia5_c.value == "1"} checked {/if} {$disabled}>',
           ),
         ),
         5 => 
@@ -237,7 +237,7 @@ array (
           array (
             'name' => 'asistencia6_c',
             'label' => 'LBL_ASISTENCIA6',
-            'customCode' => '<input type="hidden" name="asistencia6_c" value="$fields.asistencia6_c.value"><input type="checkbox" id="asistencia6_c" name="asistencia6_c" value="1" {if $fields.asistencia6_c.value == "1"} checked {/if} {$disabled}>',
+            //'customCode' => '<input type="hidden" name="asistencia6_c" value="{$fields.asistencia6_c.value}"><input type="checkbox" id="asistencia6_c" name="asistencia6_c" value="1" {if $fields.asistencia6_c.value == "1"} checked {/if} {$disabled}>',
           ),
         ),
         6 => 
@@ -253,7 +253,7 @@ array (
           array (
             'name' => 'asistencia7_c',
             'label' => 'LBL_ASISTENCIA7',
-            'customCode' => '<input type="hidden" name="asistencia7_c" value="$fields.asistencia7_c.value"><input type="checkbox" id="asistencia7_c" name="asistencia7_c" value="1" {if $fields.asistencia7_c.value == "1"} checked {/if} {$disabled}>',
+            //'customCode' => '<input type="hidden" name="asistencia7_c" value="{$fields.asistencia7_c.value}"><input type="checkbox" id="asistencia7_c" name="asistencia7_c" value="1" {if $fields.asistencia7_c.value == "1"} checked {/if} {$disabled}>',
           ),
         ),
         7 => 
@@ -269,7 +269,7 @@ array (
           array (
             'name' => 'asistencia8_c',
             'label' => 'LBL_ASISTENCIA8',
-            'customCode' => '<input type="hidden" name="asistencia8_c" value="$fields.asistencia8_c.value"><input type="checkbox" id="asistencia8_c" name="asistencia8_c" value="1" {if $fields.asistencia8_c.value == "1"} checked {/if} {$disabled}>',
+            //'customCode' => '<input type="hidden" name="asistencia8_c" value="{$fields.asistencia8_c.value}"><input type="checkbox" id="asistencia8_c" name="asistencia8_c" value="1" {if $fields.asistencia8_c.value == "1"} checked {/if} {$disabled}>',
           ),
         ),
         8 => 
@@ -285,7 +285,7 @@ array (
           array (
             'name' => 'asistencia9_c',
             'label' => 'LBL_ASISTENCIA9',
-           'customCode' => '<input type="hidden" name="asistencia9_c" value="$fields.asistencia9_c.value"><input type="checkbox" id="asistencia9_c" name="asistencia9_c" value="1" {if $fields.asistencia9_c.value == "1"} checked {/if} {$disabled}>',
+           //'customCode' => '<input type="hidden" name="asistencia9_c" value="{$fields.asistencia9_c.value}"><input type="checkbox" id="asistencia9_c" name="asistencia9_c" value="1" {if $fields.asistencia9_c.value == "1"} checked {/if} {$disabled}>',
           ),
         ),
         9 => 
@@ -301,7 +301,7 @@ array (
           array (
             'name' => 'asistencia10_c',
             'label' => 'LBL_ASISTENCIA10',
-            'customCode' => '<input type="hidden" name="asistencia10_c" value="$fields.asistencia10_c.value"><input type="checkbox" id="asistencia10_c" name="asistencia10_c" value="1" {if $fields.asistencia10_c.value == "1"} checked {/if} {$disabled}>',
+            //'customCode' => '<input type="hidden" name="asistencia10_c" value="{$fields.asistencia10_c.value}"><input type="checkbox" id="asistencia10_c" name="asistencia10_c" value="1" {if $fields.asistencia10_c.value == "1"} checked {/if} {$disabled}>',
           ),
         ),
       ),

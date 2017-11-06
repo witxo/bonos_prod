@@ -63,9 +63,29 @@ $bono = new Bonos_Bonos();
 $bono->save();
   }
   
+  
+  function get_bono_existe($numbono)
+  {
+    $db = $GLOBALS['db'];
+ $query = "SELECT numerobono AS total FROM bonos_bonos where deleted = 0 and numerobono='".$numbono."'";
+    $result = $db->query($query);
+    $row = $db->fetchByAssoc($result);   
+    
+    if ($row['total'] == $numbono)
+    {
+      return 1;
+    }
+    else
+    {
+      return 0;
+    }
+    
+  }
+  
       function save($check_notify = FALSE) {
     
-  		$newnumber=2017000000;
+        $firstnumber = date("Y") * 100000;
+  		//$newnumber=2017000000;
 		$db = $GLOBALS['db'];
  
     $id =  $this->bean->id;
@@ -75,12 +95,22 @@ $bono->save();
     $row = $db->fetchByAssoc($result);
     
      $newnumber = $row['total'];
+	//If the year changed, 201800000 will be bigger than the last number  201703455      
+        if ($firstnumber > $newnumber)   
+                 $newnumber = $firstnumber - 1 ;
 if ($this->numerobono == '')
 {
 	$this->numerobono = $newnumber + 1; // is this correct if i want the custom_id_c to increment?    
 }
+else
+{
+  if ($this->get_bono_existe($this->numerobono) == 1)
+    $this->numerobono = $newnumber + 1;
+}
+          
         
     $this->name = $this->numerobono;
+        
         
         $rel_name = 'bonos_bonos_accounts';
         $this->load_relationship($rel_name);

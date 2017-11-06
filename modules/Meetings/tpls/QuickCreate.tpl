@@ -49,6 +49,7 @@
 <input type="hidden" name="contact_invitees" value="{$REQUEST.contact_id}">
 <input type="hidden" name="contact_name" value="{$REQUEST.contact_name}">
 <input type="hidden" name="email_id" value="{$REQUEST.email_id}">
+<input type="hidden" name="isadmin" value="{$REQUEST.isadmin}">
 <input type="hidden" name="account_id" value="{$REQUEST.account_id}">			
 <input type="hidden" name="opportunity_id" value="{$REQUEST.opportunity_id}">
 <input type="hidden" name="acase_id" value="{$REQUEST.acase_id}">

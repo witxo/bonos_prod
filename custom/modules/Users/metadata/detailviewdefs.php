@@ -78,7 +78,11 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_PROFESOR',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'calendario_c',
+            'label' => 'LBL_CALENDARIO',
+          ),
         ),
       ),
       'LBL_EMPLOYEE_INFORMATION' => 

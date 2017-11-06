@@ -317,13 +317,16 @@ class CalendarUtils {
 		return $arr;
 	}
 
-	/**
+	
+  
+ 
+  	/**
 	 * Save repeat activities
 	 * @param SugarBean $bean
 	 * @param array $time_arr array of datetimes
 	 * @return array
 	 */
-	static function save_repeat_activities(SugarBean $bean,$time_arr){
+  	static function save_repeat_activities(SugarBean $bean,$time_arr){
 
 		// Here we will create single big inserting query for each invitee relationship
 		// rather than using relationships framework due to performance issues.
@@ -372,6 +375,12 @@ class CalendarUtils {
 
 		$arr = array();
 		$i = 0;
+      
+      
+      
+
+      
+      
 		foreach($time_arr as $date_start){
 			$clone = $bean;	// we don't use clone keyword cause not necessary
 			$clone->id = "";
@@ -387,6 +396,63 @@ class CalendarUtils {
 			$clone->save(false);
 
 			if($clone->id){
+              
+              
+     	    			$qU  = "DELETE FROM meetings_accounts_1_c WHERE meetings_accounts_1meetings_ida = '".$clone->id."';";
+	    			$clone->db->query($qU);
+  
+    if ($clone->account_id_c != '')
+    {
+      $qU = "INSERT INTO meetings_accounts_1_c(id, date_modified, deleted, meetings_accounts_1meetings_ida, meetings_accounts_1accounts_idb) VALUES ('".create_guid()."', '".date("Y-m-d H:m:s")."', 0, '".$clone->id."', '".$clone->account_id_c."')";
+//        $GLOBALS['log']->fatal($qU);
+      $clone->db->query($qU);
+    }
+    if ($clone->account_id1_c != '')
+    {
+      $qU = "INSERT INTO meetings_accounts_1_c(id, date_modified, deleted, meetings_accounts_1meetings_ida, meetings_accounts_1accounts_idb) VALUES ('".create_guid()."', '".date("Y-m-d H:m:s")."', 0, '".$clone->id."', '".$clone->account_id1_c."')";
+      $clone->db->query($qU);
+    }  
+    if ($clone->account_id2_c != '')
+    {
+      $qU = "INSERT INTO meetings_accounts_1_c(id, date_modified, deleted, meetings_accounts_1meetings_ida, meetings_accounts_1accounts_idb) VALUES ('".create_guid()."', '".date("Y-m-d H:m:s")."', 0, '".$clone->id."', '".$clone->account_id2_c."')";
+      $clone->db->query($qU);
+    }  
+    if ($clone->account_id3_c != '')
+    {
+      $qU = "INSERT INTO meetings_accounts_1_c(id, date_modified, deleted, meetings_accounts_1meetings_ida, meetings_accounts_1accounts_idb) VALUES ('".create_guid()."', '".date("Y-m-d H:m:s")."', 0, '".$clone->id."', '".$clone->account_id3_c."')";
+      $clone->db->query($qU);
+    }  
+    if ($clone->account_id4_c != '')
+    {
+      $qU = "INSERT INTO meetings_accounts_1_c(id, date_modified, deleted, meetings_accounts_1meetings_ida, meetings_accounts_1accounts_idb) VALUES ('".create_guid()."', '".date("Y-m-d H:m:s")."', 0, '".$clone->id."', '".$clone->account_id4_c."')";
+      $clone->db->query($qU);
+    }  
+    if ($clone->account_id5_c != '')
+    {
+      $qU = "INSERT INTO meetings_accounts_1_c(id, date_modified, deleted, meetings_accounts_1meetings_ida, meetings_accounts_1accounts_idb) VALUES ('".create_guid()."', '".date("Y-m-d H:m:s")."', 0, '".$clone->id."', '".$clone->account_id5_c."')";
+      $clone->db->query($qU);
+    }  
+    if ($clone->account_id6_c != '')
+    {
+      $qU = "INSERT INTO meetings_accounts_1_c(id, date_modified, deleted, meetings_accounts_1meetings_ida, meetings_accounts_1accounts_idb) VALUES ('".create_guid()."', '".date("Y-m-d H:m:s")."', 0, '".$clone->id."', '".$clone->account_id6_c."')";
+      $clone->db->query($qU);
+    }  
+    if ($clone->account_id7_c != '')
+    {
+      $qU = "INSERT INTO meetings_accounts_1_c(id, date_modified, deleted, meetings_accounts_1meetings_ida, meetings_accounts_1accounts_idb) VALUES ('".create_guid()."', '".date("Y-m-d H:m:s")."', 0, '".$clone->id."', '".$clone->account_id7_c."')";
+      $clone->db->query($qU);
+    }  
+    if ($clone->account_id8_c != '')
+    {
+      $qU = "INSERT INTO meetings_accounts_1_c(id, date_modified, deleted, meetings_accounts_1meetings_ida, meetings_accounts_1accounts_idb) VALUES ('".create_guid()."', '".date("Y-m-d H:m:s")."', 0, '".$clone->id."', '".$clone->account_id8_c."')";
+      $clone->db->query($qU);
+    }  
+    if ($clone->account_id9_c != '')
+    {
+      $qU = "INSERT INTO meetings_accounts_1_c(id, date_modified, deleted, meetings_accounts_1meetings_ida, meetings_accounts_1accounts_idb) VALUES ('".create_guid()."', '".date("Y-m-d H:m:s")."', 0, '".$clone->id."', '".$clone->account_id9_c."')";
+      $clone->db->query($qU);
+    }
+              
 				foreach($users_rel_arr as $user_id){
 					if($users_filled)
 						$qu_users .= ",".PHP_EOL;

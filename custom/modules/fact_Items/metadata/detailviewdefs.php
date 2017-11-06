@@ -104,15 +104,10 @@ array (
         array (
           0 => 
           array (
-            'name' => 'clase_c',
+            'name' => 'clase2_c',
             'studio' => 'visible',
-            'label' => 'LBL_CLASE',
+            'label' => 'LBL_CLASE2',
           ),
-          1 => '',
-        ),
-        6 => 
-        array (
-          0 => '',
         ),
       ),
     ),

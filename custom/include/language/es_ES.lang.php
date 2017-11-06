@@ -69,11 +69,6 @@ $GLOBALS['app_list_strings']['clasificacion_list']=array (
   'particulares' => 'Clases Particulares',
   'cursos' => 'Cursos',
 );
-$GLOBALS['app_list_strings']['meeting_status_dom']=array (
-  'Planned' => 'Pendiente',
-  'Held' => 'Confirmada',
-  'Not Held' => 'Cancelada',
-);
 $app_list_strings['moduleList']['Meetings']='Clases';
 $app_list_strings['moduleListSingular']['Meetings']='Clase';
 $app_list_strings['record_type_display_notes']['Meetings']='Clase';
@@ -102,4 +97,54 @@ $GLOBALS['app_list_strings']['clasificacion_list']=array (
   'cursos' => 'Cursos',
   'ss' => 'Seguridad Social',
   'irpf' => 'IRPF',
+);
+
+$GLOBALS['app_list_strings']['nombre_list']=array (
+  '' => '',
+  'mate12eso' => 'Matemáticas 1º-2º ESO',
+  'mate23eso' => 'Matemáticas 3º-4º ESO',
+  'mateccssbach' => 'Matemáticas CCSS Bach',
+  'mate2bach' => 'Matemáticas II Bach',
+  'fiqui23eso' => 'Física-Química 2º-3º ESO',
+  'fiqui4eso' => 'Física-Química 4º ESO',
+  'fiqui1bach' => 'Física-Química -1º Bach',
+  'fi2bach' => 'Física 2º Bach',
+  'qui2bach' => 'Química 2º Bach',
+  'eco2bach' => 'Economía 2º Bach',
+  'letrasbach' => 'Letras Bachillerato',
+  'lenguabach' => 'Lengua Bachillerato',
+  'inglesbach' => 'Inglés Bachillerato',
+  'lengua12eso' => 'Lengua 1º-2º ESO',
+  'lengua34eso' => 'Lengua 3º-4º ESO',
+  'ingles12eso' => 'Inglés 1º-2º ESO',
+  'ingles34eso' => 'Inglés 3º-4º ESO',
+  'inlgespri' => 'Inglés Primaria',
+  'speakkids12' => 'Speak kids 1-2',
+  'speakkids34' => 'Speak kids 3-4',
+  'speakkids56' => 'Speak kids 5-6',
+  'incompanyclass' => 'In company class',
+  'fce' => 'Grupo FCE',
+  'deberesprim' => 'Deberes Primaria',
+  'deberes12eso' => 'Deberes 1º-2º ESO',
+  'particienc' => 'Particular Ciencias',
+  'partiletras' => 'Particular Letras',
+  'partiingles' => 'Particular Inglés',
+  'partifrances' => 'Particular Francés',
+  'partiingnativo' => 'Particular Inglés Nativo',
+  'tecnicas' => 'Técnicas de Estudio',
+  'recepcion' => 'Recepción',
+  'vacaciones' => 'Vacaciones',
+  'libres' => 'Dias Libreas',
+  'partiprim' => 'Particulares Primaria',
+  'parti1eso' => 'Particulares 1º ESO',
+  'limpi' => 'Limpieza',
+  'partiviolin' => 'Particulares Violin',
+  'examenes' => 'Examenes',
+  'festivo' => 'Dia Festivo',
+);
+
+$GLOBALS['app_list_strings']['meeting_status_dom']=array (
+  'Planned' => 'Pendiente',
+  'Held' => 'Confirmada',
+  'Not Held' => 'Cancelada',
 );

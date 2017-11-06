@@ -120,6 +120,7 @@ if(file_exists('cache/modules/Meetings/CalendarEditView.tpl'))
       {
             $this->ev->ss->assign('readOnly', 'readonly = "readonly"');
                 $this->ev->ss->assign('disabled', 'disabled');
+         $this->ev->ss->assign('isadmin', 'false');
     
               
       }
@@ -127,6 +128,7 @@ if(file_exists('cache/modules/Meetings/CalendarEditView.tpl'))
       {
                     $this->ev->ss->assign('readOnly', '');
                 $this->ev->ss->assign('disabled', '');
+        $this->ev->ss->assign('isadmin', 'true');
      
       }
 		

@@ -7,6 +7,15 @@ $dictionary['Meeting']['fields']['asistencia3_c']['labelValue']='asistencia3';
 
  
 
+ // created: 2017-09-05 08:36:53
+$dictionary['Meeting']['fields']['name']['required']=false;
+$dictionary['Meeting']['fields']['name']['comments']='Meeting name';
+$dictionary['Meeting']['fields']['name']['merge_filter']='disabled';
+$dictionary['Meeting']['fields']['name']['full_text_search']=array (
+);
+
+ 
+
  // created: 2017-07-24 17:11:47
 $dictionary['Meeting']['fields']['alumno10_c']['labelValue']='Alumno 10';
 
@@ -33,6 +42,11 @@ $dictionary['Meeting']['fields']['fecha_inicio_c']['enable_range_search']='1';
 
  
 
+ // created: 2017-09-05 10:59:10
+$dictionary['Meeting']['fields']['nodir_c']['labelValue']='Clases en Academia';
+
+ 
+
  // created: 2017-07-25 15:50:57
 $dictionary['Meeting']['fields']['asistencia6_c']['labelValue']='asistencia6';
 
@@ -54,6 +68,12 @@ $dictionary['Meeting']['fields']['asistencia10_c']['labelValue']='asistencia10';
 
  // created: 2017-07-24 17:10:44
 $dictionary['Meeting']['fields']['alumno5_c']['labelValue']='Alumno 5';
+
+ 
+
+ // created: 2017-11-03 09:58:59
+$dictionary['Meeting']['fields']['status']['comments']='Meeting status (ex: Planned, Held, Not held)';
+$dictionary['Meeting']['fields']['status']['merge_filter']='disabled';
 
  
 
@@ -88,7 +108,7 @@ $dictionary['Meeting']['fields']['asistencia5_c']['labelValue']='asistencia5';
 
  
 
- // created: 2017-08-23 19:19:53
+ // created: 2017-09-12 08:53:53
 $dictionary['Meeting']['fields']['precio_c']['labelValue']='Precio';
 
  
@@ -109,10 +129,6 @@ $dictionary['Meeting']['fields']['alumno6_c']['labelValue']='Alumno 6';
 
  // created: 2017-07-24 17:11:23
 $dictionary['Meeting']['fields']['alumno8_c']['labelValue']='Alumno 8';
-
- 
-
- // created: 2017-08-23 19:19:55
 
  
 
@@ -169,12 +185,17 @@ $dictionary['Meeting']['fields']['asistencia7_c']['labelValue']='asistencia7';
 
  
 
+ // created: 2017-10-10 20:55:19
+$dictionary['Meeting']['fields']['nombre_c']['labelValue']='Nombre';
+
+ 
+
  // created: 2017-07-25 15:50:12
 $dictionary['Meeting']['fields']['asistencia4_c']['labelValue']='asistencia4';
 
  
 
- // created: 2017-07-24 17:08:58
+ // created: 2017-09-03 14:37:03
 $dictionary['Meeting']['fields']['alumno1_c']['labelValue']='Alumno 1';
 
  

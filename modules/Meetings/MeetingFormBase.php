@@ -84,6 +84,7 @@ $default_status = $app_list_strings['meeting_status_default'];
 $default_parent_type= $app_list_strings['record_type_default_key'];
 $default_date_start = $timedate->nowDbDate();
 $default_time_start = $timedate->nowDbTime();
+$isadmin = $current_user->is_admin;
 $time_ampm = $timedate->AMPMMenu($prefix, $timedate->nowDbTime());
 			// Unimplemented until jscalendar language files are fixed
 			// $cal_lang =(empty($cal_codes[$current_language])) ? $cal_codes[$default_language] : $cal_codes[$current_language];
@@ -94,6 +95,7 @@ $jsCalendarImage = SugarThemeRegistry::current()->getImageURL('jscalendar.gif');
 					<input type="hidden" name="${prefix}parent_type" value="${default_parent_type}">
 					<input type="hidden" name="${prefix}assigned_user_id" value='${user_id}'>
 					<input type="hidden" name="${prefix}duration_hours" value="1">
+                    <input type="hidden" name="${prefix}isadmin" value="(${isadmin}">
 					<input type="hidden" name="${prefix}duration_minutes" value="00">
 					<p>$lbl_subject<span class="required">$lbl_required_symbol</span><br>
 					<input name='${prefix}name' size='25' maxlength='255' type="text"><br>
@@ -243,6 +245,9 @@ SugarApplication::redirect('index.php?' . http_build_query($queryParams));
 
 	// retrieve happens here
 	$focus = populateFromPost($prefix, $focus);
+  
+  	$focus->name = $GLOBALS['app_list_strings']['nombre_list'][$focus->nombre_c];
+  
 	if(!$focus->ACLAccess('Save')) {
 	   ACLController::displayNoAccess(true);
 	   sugar_cleanup(true);
@@ -510,6 +515,71 @@ SugarApplication::redirect('index.php?' . http_build_query($queryParams));
 		}
 	}
 
+  
+  
+  
+  	    			$qU  = "DELETE FROM meetings_accounts_1_c WHERE meetings_accounts_1meetings_ida = '".$focus->id."';";
+	    			$focus->db->query($qU);
+  
+    if ($focus->account_id_c != '')
+    {
+      $qU = "INSERT INTO meetings_accounts_1_c(id, date_modified, deleted, meetings_accounts_1meetings_ida, meetings_accounts_1accounts_idb) VALUES ('".create_guid()."', '".date("Y-m-d H:m:s")."', 0, '".$focus->id."', '".$focus->account_id_c."')";
+//        $GLOBALS['log']->fatal($qU);
+      $focus->db->query($qU);
+    }
+    if ($focus->account_id1_c != '')
+    {
+      $qU = "INSERT INTO meetings_accounts_1_c(id, date_modified, deleted, meetings_accounts_1meetings_ida, meetings_accounts_1accounts_idb) VALUES ('".create_guid()."', '".date("Y-m-d H:m:s")."', 0, '".$focus->id."', '".$focus->account_id1_c."')";
+      $focus->db->query($qU);
+    }  
+    if ($focus->account_id2_c != '')
+    {
+      $qU = "INSERT INTO meetings_accounts_1_c(id, date_modified, deleted, meetings_accounts_1meetings_ida, meetings_accounts_1accounts_idb) VALUES ('".create_guid()."', '".date("Y-m-d H:m:s")."', 0, '".$focus->id."', '".$focus->account_id2_c."')";
+      $focus->db->query($qU);
+    }  
+    if ($focus->account_id3_c != '')
+    {
+      $qU = "INSERT INTO meetings_accounts_1_c(id, date_modified, deleted, meetings_accounts_1meetings_ida, meetings_accounts_1accounts_idb) VALUES ('".create_guid()."', '".date("Y-m-d H:m:s")."', 0, '".$focus->id."', '".$focus->account_id3_c."')";
+      $focus->db->query($qU);
+    }  
+    if ($focus->account_id4_c != '')
+    {
+      $qU = "INSERT INTO meetings_accounts_1_c(id, date_modified, deleted, meetings_accounts_1meetings_ida, meetings_accounts_1accounts_idb) VALUES ('".create_guid()."', '".date("Y-m-d H:m:s")."', 0, '".$focus->id."', '".$focus->account_id4_c."')";
+      $focus->db->query($qU);
+    }  
+    if ($focus->account_id5_c != '')
+    {
+      $qU = "INSERT INTO meetings_accounts_1_c(id, date_modified, deleted, meetings_accounts_1meetings_ida, meetings_accounts_1accounts_idb) VALUES ('".create_guid()."', '".date("Y-m-d H:m:s")."', 0, '".$focus->id."', '".$focus->account_id5_c."')";
+      $focus->db->query($qU);
+    }  
+    if ($focus->account_id6_c != '')
+    {
+      $qU = "INSERT INTO meetings_accounts_1_c(id, date_modified, deleted, meetings_accounts_1meetings_ida, meetings_accounts_1accounts_idb) VALUES ('".create_guid()."', '".date("Y-m-d H:m:s")."', 0, '".$focus->id."', '".$focus->account_id6_c."')";
+      $focus->db->query($qU);
+    }  
+    if ($focus->account_id7_c != '')
+    {
+      $qU = "INSERT INTO meetings_accounts_1_c(id, date_modified, deleted, meetings_accounts_1meetings_ida, meetings_accounts_1accounts_idb) VALUES ('".create_guid()."', '".date("Y-m-d H:m:s")."', 0, '".$focus->id."', '".$focus->account_id7_c."')";
+      $focus->db->query($qU);
+    }  
+    if ($focus->account_id8_c != '')
+    {
+      $qU = "INSERT INTO meetings_accounts_1_c(id, date_modified, deleted, meetings_accounts_1meetings_ida, meetings_accounts_1accounts_idb) VALUES ('".create_guid()."', '".date("Y-m-d H:m:s")."', 0, '".$focus->id."', '".$focus->account_id8_c."')";
+      $focus->db->query($qU);
+    }  
+    if ($focus->account_id9_c != '')
+    {
+      $qU = "INSERT INTO meetings_accounts_1_c(id, date_modified, deleted, meetings_accounts_1meetings_ida, meetings_accounts_1accounts_idb) VALUES ('".create_guid()."', '".date("Y-m-d H:m:s")."', 0, '".$focus->id."', '".$focus->account_id9_c."')";
+      $focus->db->query($qU);
+    }
+
+
+  
+  
+  
+  
+  
+  
 	if(!empty($_POST['is_ajax_call']))
 	{
 		$json = getJSONobj();
