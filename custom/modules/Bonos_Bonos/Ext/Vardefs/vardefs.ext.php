@@ -35,6 +35,18 @@ $dictionary["Bonos_Bonos"]["fields"]["bonos_bonos_accountsaccounts_ida"] = array
   'vname' => 'LBL_BONOS_BONOS_ACCOUNTS_FROM_BONOS_BONOS_TITLE',
 );
 
+ $dictionary['Bonos_Bonos']['fields']['fecha_uso_c'] = array (     
+  'name' => 'fecha_uso_c',     
+  'id_name' => 'fecha_uso_c',     
+  'vname' => 'LBL_FECHA_USO',     
+  'source' => 'non-db',     
+  'dbType' => 'non-db',     
+  'studio' => 'visible',     
+  'type' => 'date',     
+//  'rname' => 'fecha', // Related module's field name     
+//  'link' => 'Clas', // Relationship name     
+//  'module' => 'Meetings', // Related module name 
+); 
 
  // created: 2017-07-25 16:04:06
 $dictionary['Bonos_Bonos']['fields']['numerobono']['duplicate_merge']='enabled';

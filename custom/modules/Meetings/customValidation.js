@@ -1,6 +1,7 @@
-
-  
+isadmin = false;
+isvalidated = false;
 isadmin = document.getElementById("isadmin").value;
+isvalidated = document.getElementById("bono_validado_c").value;
 if (isadmin != 'true')
 {
   boton1 = document.getElementById("btn_bono_c");
@@ -8,6 +9,10 @@ if (isadmin != 'true')
   
   boton2= document.getElementById("btn_clr_bono_c");
   boton2.style.display = 'none';
+  
+}
+else
+{
   
 }
 
@@ -18,7 +23,10 @@ SUGAR.util.doWhen("typeof(check_form) != 'undefined' && typeof check_form == 'fu
     check_form = _.wrap(check_form, function(originalCheckFormFunction, originalCheckFormFunctionArg) {
         // Adding custom validation 
       
+      
+      
       valor_bono = document.getElementById("bono_c").value;
+
       
       if (valor_bono != "")
       {

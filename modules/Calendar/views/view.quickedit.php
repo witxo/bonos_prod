@@ -70,26 +70,13 @@ if(file_exists('cache/modules/Meetings/CalendarEditView.tpl'))
 		$_REQUEST['module'] = $module;
 				
        global $current_user;
-      if ($current_user->is_admin <> '1')
+      
+/*      
+      if (($current_user->is_admin == '1') || ($current_user->calendario_c == '1'))
       {
         
-
-				$base = 'modules/' . $module . '/metadata/';
-		$source = 'custom/'.$base.'quickcreatedefs_ro.php';
-		if (!file_exists($source)){
-			$source = $base . 'quickcreatedefs_ro.php';
-			if (!file_exists($source)){
-				$source = 'custom/' . $base . 'editviewdefs.php';
-				if (!file_exists($source)){
-					$source = $base . 'editviewdefs.php';
-				}
-			}
-		}	
-          
-      }
-      else
-      {
-		$base = 'modules/' . $module . '/metadata/';
+        
+        		$base = 'modules/' . $module . '/metadata/';
 		$source = 'custom/'.$base.'quickcreatedefs.php';
 		if (!file_exists($source)){
 			$source = $base . 'quickcreatedefs.php';
@@ -100,8 +87,65 @@ if(file_exists('cache/modules/Meetings/CalendarEditView.tpl'))
 				}
 			}
 		}
+        
+
+
+          
       }
-		
+      else
+      {
+        
+        				$base = 'modules/' . $module . '/metadata/';
+		$source = 'custom/'.$base.'quickcreatedefs_ro.php';
+		if (!file_exists($source)){
+			$source = $base . 'quickcreatedefs_ro.php';
+			if (!file_exists($source)){
+				$source = 'custom/' . $base . 'editviewdefs.php';
+				if (!file_exists($source)){
+					$source = $base . 'editviewdefs.php';
+				}
+			}
+		}	
+
+      }
+*/
+      
+      if (($current_user->is_admin == '1') || ($current_user->calendario_c == '1'))
+      {
+        
+        
+        		$base = 'modules/' . $module . '/metadata/';
+		$source = 'custom/'.$base.'quickcreatedefs.php';
+		if (!file_exists($source)){
+			$source = $base . 'quickcreatedefs.php';
+			if (!file_exists($source)){
+				$source = 'custom/' . $base . 'editviewdefs.php';
+				if (!file_exists($source)){
+					$source = $base . 'editviewdefs.php';
+				}
+			}
+		}
+        
+
+
+          
+      }
+        else
+        {
+        
+        				$base = 'modules/' . $module . '/metadata/';
+		$source = 'custom/'.$base.'quickcreatedefs_ro.php';
+		if (!file_exists($source)){
+			$source = $base . 'quickcreatedefs_ro.php';
+			if (!file_exists($source)){
+				$source = 'custom/' . $base . 'editviewdefs.php';
+				if (!file_exists($source)){
+					$source = $base . 'editviewdefs.php';
+				}
+			}
+		}	
+
+      }      
 		$GLOBALS['mod_strings'] = return_module_language($GLOBALS['current_language'], $module);
         $tpl = $this->getCustomFilePathIfExists('include/EditView/EditView.tpl');
 
@@ -116,19 +160,22 @@ if(file_exists('cache/modules/Meetings/CalendarEditView.tpl'))
       
    global $current_user;
 
-      if ($current_user->is_admin <> 1)
+      if (($current_user->is_admin == 1) || ($current_user->calendario_c == '1'))
       {
-            $this->ev->ss->assign('readOnly', 'readonly = "readonly"');
-                $this->ev->ss->assign('disabled', 'disabled');
-         $this->ev->ss->assign('isadmin', 'false');
-    
+        
+                            $this->ev->ss->assign('readOnly', '');
+                $this->ev->ss->assign('disabled', '');
+        $this->ev->ss->assign('isadmin', 'true');
+        
               
       }
       else
       {
-                    $this->ev->ss->assign('readOnly', '');
-                $this->ev->ss->assign('disabled', '');
-        $this->ev->ss->assign('isadmin', 'true');
+
+            $this->ev->ss->assign('readOnly', 'readonly = "readonly"');
+                $this->ev->ss->assign('disabled', 'disabled');
+         $this->ev->ss->assign('isadmin', 'false');
+    
      
       }
 		

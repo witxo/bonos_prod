@@ -122,11 +122,13 @@ for ($i = 0; $i < 10; $i++)
   }
   
   $cuenta = $fields['ACCOUNT_ID'.$c.'_C'];
+  $MeetingBean = BeanFactory::getBean('Meetings', $fields['ID']);
   
 	if ($cuenta != '')
     {
      	$AccountBean = BeanFactory::getBean('Accounts', $cuenta);
         $UserBean = BeanFactory::getBean('Users', $fields['ASSIGNED_USER_ID']);
+      	
     	$precio_prof = getPrecioHora($UserBean->account_id_c, $AccountBean->id);   
       
         $precio_prof_tot = $precio_prof_tot + $precio_prof;
@@ -153,8 +155,9 @@ for ($i = 0; $i < 10; $i++)
       }
       else
       {
+        //print_r ($fields);
          $horasalumno = getHorasAlumnoAsignaturaCRM ($AccountBean->id, $fields['NAME'], $mes);
-         $ingresoalumno = getIngresoAlumnoAsignaturaCRM ($AccountBean->id, $fields['NAME'], $mes);
+         $ingresoalumno = getIngresoAlumnoAsignaturaCRM ($AccountBean->id, $MeetingBean->nombre_c, $mes);
         
  		$overlib_string .= '<b>'. "<a href='index.php?module=Accounts&action=DetailView&record=".$AccountBean->id."'>" . $AccountBean->name . "</a>". '</b> ';
     	$overlib_string .= ' - Horas/Mes: '.$horasalumno. ' // Ingreso/Mes: '.$ingresoalumno;

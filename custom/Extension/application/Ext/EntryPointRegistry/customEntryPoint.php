@@ -20,4 +20,9 @@
     'auth' => true
   );
 
+  $entry_point_registry['Informe_Alumnos'] = array(
+    'file' => 'custom/informe_alumnos.php',
+    'auth' => true
+  );
+
 ?>

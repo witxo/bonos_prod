@@ -180,9 +180,11 @@ function handleSave($prefix,$redirect=true, $useRequired=false) {
 	global $timedate;
 
 	$focus = new Meeting();
+  
+  /*
   if ($_POST['bono_c'] != '')	$bonousado = getBonoUsado($_POST['bono_c']);
  
-      if (($current_user->is_admin <> '1') and ($_POST['bono_validado_c'] == '1'))
+      if (($current_user->is_admin <> '1') || ($current_user->calendario_c <> '1') ) and ($_POST['bono_validado_c'] == '1'))
       {  
         SugarApplication::appendErrorMessage('El bono ya esta validado. No se puede guardar.');
         return null;
@@ -191,16 +193,12 @@ function handleSave($prefix,$redirect=true, $useRequired=false) {
       {        
         SugarApplication::appendErrorMessage('El bono ya se ha utilizado en otra clase.');
 
-//$queryParams = array(
-//    'module' => 'Calendar',
-//    'action' => 'index',
-//  	'record_id' => $_POST['record'],);
-SugarApplication::redirect('index.php?' . http_build_query($queryParams));        
+		SugarApplication::redirect('index.php?' . http_build_query($queryParams));        
         
         
       }
     
-  
+  */
   
 	if($useRequired && !checkRequired($prefix, array_keys($focus->required_fields))) {
 		return null;

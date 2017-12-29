@@ -89,11 +89,14 @@ class CalendarDisplay {
 
       
          global $current_user;
-
-      if ($current_user->is_admin <> 1)
+if (($current_user->is_admin == '1') || ($current_user->calendario_c == '1'))
+     {
+        $this->cal->enable_repeat = true;
+        
+      }
+      else
       {
         $this->cal->enable_repeat = false;
-        
       }
       
 		global $timedate;
@@ -167,7 +170,7 @@ class CalendarDisplay {
 		$ss->assign('GRjavascript',$json_config->get_static_json_server(false, true, 'Meetings'));
 
       	global $current_user;
-       if ($current_user->is_admin == '1')
+       if (($current_user->is_admin == '1') || ($current_user->calendario_c == '1'))
        {
          $isadmin = 'true';
        }

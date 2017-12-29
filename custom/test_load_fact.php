@@ -2,26 +2,6 @@
 	include_once("dbconfig.php");
 	include_once("funciones.php");
 
-    $url = "http://www.ivema.es/crm/service/v4_1/rest.php";
-    $username = "admin";
-    $password = "jotake";
-
-
-	    $db = new DBConnection();
-	$db2 = $db->getCRMConnection();
-mysql_set_charset('utf8',$db2);
-    $db->getCRMConnection();
-	
-	$sql = "Select max(numero) as maximo from fact_facturas where deleted = 0 and fact_facturas_type = 'nomina'";
-		$handle = mysql_query($sql);
-
-$row = mysql_fetch_object($handle);
-
-$numero_fact = $row->maximo + 1;
-
-
-
-    //function to make cURL request
     function call($method, $parameters, $url)
     {
         ob_start();
@@ -55,6 +35,50 @@ $numero_fact = $row->maximo + 1;
         return $response;
     }
 
+
+
+function create_factura ($tipo_fact, $profesor, $clasificacion, $fecha, $fecha_contable, $grupo, $irpf, $iva, $base, $log)
+{
+    $url = "http://www.ivema.es/crm/service/v4_1/rest.php";
+    $username = "admin";
+    $password = "jotake";
+  
+//  	setlocale(LC_ALL,"es_ES@euro","es_ES","esp");
+//	$texto = ucwords(strftime("%B").' '.Date('Y'));
+  
+   $mesesN=array(1=>"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio",
+             "Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+  
+  $arr = explode('-', $fecha);
+
+  if ($clasificacion == 'irpf')
+    $texto = 'IRPF ';
+  elseif ($clasificacion == 'ss')
+    $texto = 'Seguridad Social ';
+
+  
+  $mes = $arr[1];
+  
+ $texto =  $texto.$mesesN[$mes].' '.Date('Y');
+
+
+	    $db = new DBConnection();
+	$db2 = $db->getCRMConnection();
+mysql_set_charset('utf8',$db2);
+    $db->getCRMConnection();
+	
+	$sql = "Select max(numero) as maximo from fact_facturas where deleted = 0 and fact_facturas_type = '".$tipo_fact."'";
+		$handle = mysql_query($sql);
+
+$row = mysql_fetch_object($handle);
+
+$numero_fact = $row->maximo + 1;
+
+
+
+    //function to make cURL request
+
+
     //login --------------------------------------------- 
     $login_parameters = array(
          "user_auth" => array(
@@ -68,11 +92,14 @@ $numero_fact = $row->maximo + 1;
 
     $login_result = call("login", $login_parameters, $url);
 
-    /*
+  	if ($log == 1)
+    {
+    
     echo "<pre>";
     print_r($login_result);
     echo "</pre>";
-    */
+    
+    }
 
     //get session id
     $session_id = $login_result->id;
@@ -89,11 +116,14 @@ $numero_fact = $row->maximo + 1;
          "name_value_list" => array(
               //to update a record, you will nee to pass in a record id as commented below
               //array("name" => "id", "value" => "9b170af9-3080-e22b-fbc1-4fea74def88f"),
-              array("name" => "name", "value" => "Test Nomina"),
-              array("name" => "date_closed", "value" => "2017-11-06"),
-              array("name" => "fecha_contable_c", "value" => "2017-11-06"),
-              array("name" => "clasificacion_c", "value" => "sueldos"),
-              array("name" => "fact_facturas_type", "value" => "nomina"),
+              array("name" => "name", "value" => $texto),
+              array("name" => "date_closed", "value" => $fecha),
+              array("name" => "fecha_contable_c", "value" => $fecha_contable),
+			  array("name" => "grupo_c", "value" => $grupo),           
+              array("name" => "clasificacion_c", "value" => $clasificacion),
+              array("name" => "gasto_si_no_c", "value" => 'Si'),
+              array("name" => "ingreso_si_no_c", "value" => 'No'),
+              array("name" => "fact_facturas_type", "value" => $tipo_fact),
               array("name" => "estado", "value" => "emitida"),
               array("name" => "numero", "value" => $numero_fact),
 
@@ -102,11 +132,13 @@ $numero_fact = $row->maximo + 1;
 
     $set_entry_result = call("set_entry", $set_entry_parameters, $url);
 
+  	if ($log == 1)
+    {
     echo "<pre>";
 	echo "<p>Created Factura";
     print_r($set_entry_result);
     echo "</pre>";
-
+    }
 	$factura_id = $set_entry_result->id;  
 
 $set_relationship_parameters = array(  
@@ -116,19 +148,20 @@ $set_relationship_parameters = array(
                 "module_name" => "fact_Facturas",  
                 "module_id" => $factura_id,  
                 "link_field_name" => "accounts_fact_facturas",  
-                "related_ids" => array('c60c5be6-b56c-31a9-135b-59ad26d9847f',) ,
+                "related_ids" => array($profesor,) ,
   				'name_value_list' => array() 
             );  
   
   
             $set_relationship_result = call("set_relationship", $set_relationship_parameters, $url);  
   
-  
+  	if ($log == 1)
+    {  
             echo "<pre>";  
 			echo "<p>Created Assignment Account";
             print_r($set_relationship_result);  
             echo "</pre>";  
-
+    }
 
     //create item------------------------------------- 
     $set_entry_parameters = array(
@@ -142,18 +175,20 @@ $set_relationship_parameters = array(
          "name_value_list" => array(
               //to update a record, you will nee to pass in a record id as commented below
               //array("name" => "id", "value" => "9b170af9-3080-e22b-fbc1-4fea74def88f"),
-              array("name" => "name", "value" => "Test Nomina Item"),
-              array("name" => "precio_ud", "value" => "500"),
+              array("name" => "name", "value" => $texto),
+              array("name" => "precio_ud", "value" => $base),
          ),
     );
 
     $set_entry_result = call("set_entry", $set_entry_parameters, $url);
 
+  	if ($log == 1)
+    {
     echo "<pre>";
 	echo "<p>Created Item";
     print_r($set_entry_result);
     echo "</pre>";
-
+    }
 	$item_id = $set_entry_result->id;  
 
 $set_relationship_parameters = array(  
@@ -172,12 +207,13 @@ $set_relationship_parameters = array(
   
             $set_relationship_result = call("set_relationship", $set_relationship_parameters, $url);  
   
-  
+  	if ($log == 1)
+    {  
             echo "<pre>";  
 			echo "<p>Created Assignment Item";
             print_r($set_relationship_result);  
             echo "</pre>";  
-
+    }
 
   //change factura ------------------------------------- 
     $set_entry_parameters = array(
@@ -191,18 +227,20 @@ $set_relationship_parameters = array(
          "name_value_list" => array(
               //to update a record, you will nee to pass in a record id as commented below
               array("name" => "id", "value" => $factura_id),
-              array("name" => "name", "value" => "Test Nomina Changed"),
-              array("name" => "retencion", "value" => "15"),           
+              array("name" => "name", "value" => $texto),
+              array("name" => "retencion", "value" => $irpf),           
               array("name" => "tipo_repercutido", "value" => "01"),           
-              array("name" => "repercutido", "value" => "21"),           
+              array("name" => "repercutido", "value" => $iva),           
            ),
       );
       
     $set_entry_result = call("set_entry", $set_entry_parameters, $url);
-
+  	if ($log == 1)
+    {
     echo "<pre>";
 	echo "<p>Changed Fact";
     print_r($set_entry_result);
     echo "</pre>";
-
+    }   
+}
 ?>

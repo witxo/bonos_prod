@@ -1,5 +1,5 @@
 <?php
-// created: 2017-01-26 11:57:44
+// created: 2017-12-04 14:49:04
 $searchFields['fact_Facturas'] = array (
   'name' => 
   array (

@@ -178,6 +178,14 @@ array (
         'default' => true,
         'name' => 'fact_facturas_type',
       ),
+      'numero' => 
+      array (
+        'type' => 'int',
+        'label' => 'LBL_NUMERO',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'numero',
+      ),
       'year' => 
       array (
         'name' => 'year',
