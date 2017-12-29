@@ -1,8 +1,24 @@
 isadmin = false;
 isvalidated = false;
 isadmin = document.getElementById("isadmin").value;
+iscalendaradmin = document.getElementById("iscalendaradmin").value;
 isvalidated = document.getElementById("bono_validado_c").value;
-if (isadmin != 'true')
+
+
+  boton1 = document.getElementById("btn_bono_c");
+  boton1.style.display = 'initial';
+  
+  boton2= document.getElementById("btn_clr_bono_c");
+  boton2.style.display = 'initial';
+  
+    boton3= document.getElementById("btn-save");
+  boton3.style.display = 'initial';
+  
+    boton4= document.getElementById("btn-delete");
+  boton4.style.display = 'initial';
+
+
+if ((isadmin != 'true') && (isvalidated == '1'))
 {
   boton1 = document.getElementById("btn_bono_c");
   boton1.style.display = 'none';
@@ -10,11 +26,42 @@ if (isadmin != 'true')
   boton2= document.getElementById("btn_clr_bono_c");
   boton2.style.display = 'none';
   
-}
-else
-{
+    boton3= document.getElementById("btn-save");
+  boton3.style.display = 'none';
+  
+    boton4= document.getElementById("btn-delete");
+  boton4.style.display = 'none';
+  
+  var radios = document.getElementsByName("bono_validado_c"); 
+  
+    for (var a=0; a<radios.length; a++){ 
+        radios[a].style.display = 'none';
+    }
+       boton4= document.getElementById("bono_validado_c_label");
+  boton4.style.display = 'none'; 
+  
+  alert('La clase ya esta validada. No se puede modificar');
   
 }
+else if ((isadmin != 'true') && (isvalidated == '0') && (iscalendaradmin != 'true'))
+{
+  
+  var radios = document.getElementsByName("bono_validado_c"); 
+  
+    for (var a=0; a<radios.length; a++){ 
+        radios[a].style.display = 'none';
+    }
+
+       boton4= document.getElementById("bono_validado_c_label");
+  boton4.style.display = 'none'; 
+  
+      boton4= document.getElementById("btn-delete");
+  boton4.style.display = 'none';
+  
+}
+
+
+
 
 $.getScript("http://www.ivema.es/crm/custom/underscore-min.js?v=dXknmDRBiLDfFfHoAMdy9Q");
 

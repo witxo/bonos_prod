@@ -160,8 +160,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'bono_validado_c',
-            'label' => 'LBL_BONO_VALIDADO',
+ 				 'name' => 'bono_validado_c',
+        		 'label' => 'LBL_BONO_VALIDADO',
+        	 	 
           ),
         ),
         4 => 

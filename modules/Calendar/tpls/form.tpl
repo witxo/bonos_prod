@@ -46,6 +46,7 @@
 <input type="hidden" name="lead_invitees" id="lead_invitees">
 <input type="hidden" name="send_invites" id="send_invites">
 <input type="hidden" name="isadmin" id="isadmin" value="{$isadmin}">
+<input type="hidden" name="iscalendaradmin" id="iscalendaradmin" value="{$iscalendaradmin}">
 
 <input type="hidden" name="edit_all_recurrences" id="edit_all_recurrences">
 <input type="hidden" name="repeat_parent_id" id="repeat_parent_id">

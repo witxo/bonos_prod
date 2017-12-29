@@ -170,7 +170,7 @@ if (($current_user->is_admin == '1') || ($current_user->calendario_c == '1'))
 		$ss->assign('GRjavascript',$json_config->get_static_json_server(false, true, 'Meetings'));
 
       	global $current_user;
-       if (($current_user->is_admin == '1') || ($current_user->calendario_c == '1'))
+       if (($current_user->is_admin == '1'))
        {
          $isadmin = 'true';
        }
@@ -178,7 +178,19 @@ if (($current_user->is_admin == '1') || ($current_user->calendario_c == '1'))
        {
          $isadmin = 'false';
        }
-       $ss->assign('isadmin',$isadmin);    
+       $ss->assign('isadmin',$isadmin);   
+      
+       if (($current_user->calendario_c == '1'))
+       {
+         $iscalendaradmin = 'true';
+       }
+       else
+       {
+         $iscalendaradmin = 'false';
+       }
+       $ss->assign('iscalendaradmin',$iscalendaradmin);  
+      
+      
 		// form
 		$user_default_date_start  = $timedate->asUser($timedate->getNow());
 		$ss->assign('user_default_date_start',$user_default_date_start);

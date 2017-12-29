@@ -160,7 +160,7 @@ if(file_exists('cache/modules/Meetings/CalendarEditView.tpl'))
       
    global $current_user;
 
-      if (($current_user->is_admin == 1) || ($current_user->calendario_c == '1'))
+      if (($current_user->is_admin == '1'))
       {
         
                             $this->ev->ss->assign('readOnly', '');
@@ -177,6 +177,15 @@ if(file_exists('cache/modules/Meetings/CalendarEditView.tpl'))
          $this->ev->ss->assign('isadmin', 'false');
     
      
+      }
+      
+      if (($current_user->calendario_c == '1') || ($current_user->is_admin == '1'))
+      {
+        $this->ev->ss->assign('iscalendaradmin', 'true');
+      }
+      else
+      {
+        $this->ev->ss->assign('iscalendaradmin', 'false');
       }
 		
 		if(!empty($this->bean->id)){
