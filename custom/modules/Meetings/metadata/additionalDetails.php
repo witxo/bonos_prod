@@ -47,6 +47,7 @@ function additionalDetailsMeeting($fields) {
 	static $mod_strings;
   
   $mes = substr($fields['DATE_START'], 3, 2);
+  $anio = substr($fields['DATE_START'], 6, 4);
   
 	if(empty($mod_strings)) {
 		global $current_language;
@@ -156,8 +157,8 @@ for ($i = 0; $i < 10; $i++)
       else
       {
         //print_r ($fields);
-         $horasalumno = getHorasAlumnoAsignaturaCRM ($AccountBean->id, $fields['NAME'], $mes);
-         $ingresoalumno = getIngresoAlumnoAsignaturaCRM ($AccountBean->id, $MeetingBean->nombre_c, $mes);
+         $horasalumno = getHorasAlumnoAsignaturaCRM ($AccountBean->id, $fields['NAME'], $mes, $anio);
+         $ingresoalumno = getIngresoAlumnoAsignaturaCRM ($AccountBean->id, $MeetingBean->nombre_c, $mes, $anio);
         
  		$overlib_string .= '<b>'. "<a href='index.php?module=Accounts&action=DetailView&record=".$AccountBean->id."'>" . $AccountBean->name . "</a>". '</b> ';
     	$overlib_string .= ' - Horas/Mes: '.$horasalumno. ' // Ingreso/Mes: '.$ingresoalumno;
@@ -176,13 +177,13 @@ for ($i = 0; $i < 10; $i++)
       {
         
         
-  $sueldo_profe = getSueldoMesCRM ($UserBean->account_id_c, $mes);
-  $ss_profe = getSSMesCRM ($UserBean->account_id_c, $mes);
-  $irpf_profe = getIRPFMesCRM ($UserBean->account_id_c, $mes);
+  $sueldo_profe = getSueldoMesCRM ($UserBean->account_id_c, $mes, $anio);
+  $ss_profe = getSSMesCRM ($UserBean->account_id_c, $mes, $anio);
+  $irpf_profe = getIRPFMesCRM ($UserBean->account_id_c, $mes, $anio);
   $gastos_profe = $sueldo_profe + $ss_profe + $irpf_profe;
   
   
-  $horas_profe = getHorasProfe ($UserBean->account_id_c, $mes);
+  $horas_profe = getHorasProfe ($UserBean->account_id_c, $mes, $anio);
   
   $coste_profe_hora = $gastos_profe / $horas_profe;
     $overlib_string .= '<br><b>'. "Gastos Profe: ". round($gastos_profe, 2). '</b>';   

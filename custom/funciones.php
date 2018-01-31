@@ -46,7 +46,7 @@ $row = $db->fetchByAssoc($result);
 
 }
 
-function getSueldoMes ($profe, $mes)
+function getSueldoMes ($profe, $mes, $anio)
 {
   
     		    $db = new DBConnection();
@@ -58,8 +58,8 @@ mysql_set_charset('utf8',$db2);
 // fact_facturas.id = accounts_fact_facturas_c.accounts_fbc88acturas_idb where accounts_fact_facturas_c.accounts_f4ffcccounts_ida = 'aef35f92-dcec-41b8-102f-563893bb5c3b' and clasificacion_c = 'ss'  
  
   
-  $fechah = data_last_month_day ($mes, date("Y"));
-  $fechad = data_first_month_day ($mes, date("Y"));
+  $fechah = data_last_month_day ($mes, $anio);
+  $fechad = data_first_month_day ($mes, $anio);
   
     $query = "select SUM(amount) as cantidad from fact_facturas inner join fact_facturas_cstm on fact_facturas.id = fact_facturas_cstm.id_c ";
   $query .= " inner join accounts_fact_facturas_c ON  fact_facturas.id = accounts_fact_facturas_c.accounts_fbc88acturas_idb ";
@@ -83,7 +83,7 @@ mysql_set_charset('utf8',$db2);
   
 }
 
-function getSSMes ($profe, $mes)
+function getSSMes ($profe, $mes, $anio)
 {
 
        		    $db = new DBConnection();
@@ -95,8 +95,8 @@ mysql_set_charset('utf8',$db2);
 // fact_facturas.id = accounts_fact_facturas_c.accounts_fbc88acturas_idb where accounts_fact_facturas_c.accounts_f4ffcccounts_ida = 'aef35f92-dcec-41b8-102f-563893bb5c3b' and clasificacion_c = 'ss'  
  
   
-  $fechah = data_last_month_day ($mes, date("Y"));
-  $fechad = data_first_month_day ($mes, date("Y"));
+  $fechah = data_last_month_day ($mes, $anio);
+  $fechad = data_first_month_day ($mes, $anio);
   
     $query = "select amount from fact_facturas inner join fact_facturas_cstm on fact_facturas.id = fact_facturas_cstm.id_c ";
   $query .= " inner join accounts_fact_facturas_c ON  fact_facturas.id = accounts_fact_facturas_c.accounts_fbc88acturas_idb ";
@@ -120,7 +120,7 @@ mysql_set_charset('utf8',$db2);
   
 }
 
-function getIRPFMes ($profe, $mes)
+function getIRPFMes ($profe, $mes, $anio)
 {
 
         		    $db = new DBConnection();
@@ -132,8 +132,8 @@ mysql_set_charset('utf8',$db2);
 // fact_facturas.id = accounts_fact_facturas_c.accounts_fbc88acturas_idb where accounts_fact_facturas_c.accounts_f4ffcccounts_ida = 'aef35f92-dcec-41b8-102f-563893bb5c3b' and clasificacion_c = 'ss'  
  
   
-  $fechah = data_last_month_day ($mes, date("Y"));
-  $fechad = data_first_month_day ($mes, date("Y"));
+  $fechah = data_last_month_day ($mes, $anio);
+  $fechad = data_first_month_day ($mes, $anio);
   
     $query = "select amount from fact_facturas inner join fact_facturas_cstm on fact_facturas.id = fact_facturas_cstm.id_c ";
   $query .= " inner join accounts_fact_facturas_c ON  fact_facturas.id = accounts_fact_facturas_c.accounts_fbc88acturas_idb ";
@@ -155,11 +155,11 @@ mysql_set_charset('utf8',$db2);
   
 }
 
-function getHorasProfe ($profe, $mes)
+function getHorasProfe ($profe, $mes, $anio)
 {
   	$db = $GLOBALS['db'];
-   $fechah = data_last_month_day ($mes, date("Y"));
-  $fechad = data_first_month_day ($mes, date("Y"));
+   $fechah = data_last_month_day ($mes, $anio);
+  $fechad = data_first_month_day ($mes, $anio);
   
   $sql = "SELECT SUM(duration_hours) as H, SUM(duration_minutes)as M  FROM meetings inner join users_cstm on meetings.assigned_user_id = users_cstm.id_c WHERE deleted = 0 and users_cstm.account_id_c = '".$profe."' and date_start > '".$fechad."' and date_start < '".$fechah."' and meetings.status = 'Held' and name <> 'Vacaciones'";
   
@@ -390,6 +390,25 @@ mysql_set_charset('utf8',$db2);
 }
 
 
+function getBonoId ($bono)
+{
+      $db = new DBConnection();
+	$db2 = $db->getCRMConnection();
+mysql_set_charset('utf8',$db2);
+    $db->getCRMConnection();
+  
+    $sql = "SELECT id FROM bonos_bonos where numerobono = '". $bono. "';";
+
+	
+
+
+    $handle = mysql_query($sql);
+    //echo $sql;
+    $row = mysql_fetch_object($handle);
+	
+return $row->id;
+  
+}
 
 
 
@@ -422,15 +441,15 @@ mysql_set_charset('utf8',$db2);
   
 }
 
-function getHorasAlumnoAsignatura ($alumno, $asignatura, $mes)
+function getHorasAlumnoAsignatura ($alumno, $asignatura, $mes, $anio)
 {
     $db = new DBConnection();
 	$db2 = $db->getCRMConnection();
 mysql_set_charset('utf8',$db2);
     $db->getCRMConnection();
   
-    $fechah = data_last_month_day ($mes, date("Y"));
-  $fechad = data_first_month_day ($mes, date("Y"));
+    $fechah = data_last_month_day ($mes, $anio);
+  $fechad = data_first_month_day ($mes, $anio);
   
   $sql = "SELECT SUM(duration_hours) as H, SUM(duration_minutes) as M FROM `meetings_accounts_1_c` inner join meetings on meetings.id = meetings_accounts_1_c.meetings_accounts_1meetings_ida inner join meetings_cstm on meetings.id = meetings_cstm.id_c".
     " WHERE meetings.status = 'Held' and meetings.deleted = 0 and meetings_accounts_1_c.deleted = 0 and name = '".$asignatura."' and `meetings_accounts_1accounts_idb` = '".$alumno."'";
@@ -452,11 +471,11 @@ mysql_set_charset('utf8',$db2);
     }  
 }
 
-function getHorasAlumnoAsignaturaCRM ($alumno, $asignatura, $mes)
+function getHorasAlumnoAsignaturaCRM ($alumno, $asignatura, $mes, $anio)
 {
    	$db = $GLOBALS['db'];
-    $fechah = data_last_month_day ($mes, date("Y"));
-  $fechad = data_first_month_day ($mes, date("Y"));
+    $fechah = data_last_month_day ($mes, $anio);
+  $fechad = data_first_month_day ($mes, $anio);
   
   $sql = "SELECT SUM(duration_hours) as H, SUM(duration_minutes) as M FROM `meetings_accounts_1_c` inner join meetings on meetings.id = meetings_accounts_1_c.meetings_accounts_1meetings_ida inner join meetings_cstm on meetings.id = meetings_cstm.id_c".
     " WHERE meetings.status = 'Held' and meetings.deleted = 0 and meetings_accounts_1_c.deleted = 0 and name = '".$asignatura."' and `meetings_accounts_1accounts_idb` = '".$alumno."'";
@@ -478,7 +497,7 @@ $row = $db->fetchByAssoc($result);
 }
 
 
-function getIngresoAlumnoAsignatura ($alumno, $asignatura, $mes)
+function getIngresoAlumnoAsignatura ($alumno, $asignatura, $mes, $anio)
 {
   $total = 0;
     $db = new DBConnection();
@@ -486,8 +505,8 @@ function getIngresoAlumnoAsignatura ($alumno, $asignatura, $mes)
 mysql_set_charset('utf8',$db2);
     $db->getCRMConnection();
   
-  $fechah = data_last_month_day ($mes, date("Y"));
-  $fechad = data_first_month_day ($mes, date("Y"));
+  $fechah = data_last_month_day ($mes,$anio);
+  $fechad = data_first_month_day ($mes, $anio);
   
   $sql = "SELECT precio_ud, cantidad FROM `fact_facturas`".
     	 " INNER JOIN fact_facturas_cstm on fact_facturas.id = fact_facturas_cstm.id_c".
@@ -514,13 +533,13 @@ mysql_set_charset('utf8',$db2);
 
 
 
-function getIngresoAlumnoAsignaturaCRM ($alumno, $asignatura, $mes)
+function getIngresoAlumnoAsignaturaCRM ($alumno, $asignatura, $mes, $anio)
 {
   $total = 0;
 	$db = $GLOBALS['db'];
   
-  $fechah = data_last_month_day ($mes, date("Y"));
-  $fechad = data_first_month_day ($mes, date("Y"));
+  $fechah = data_last_month_day ($mes, $anio);
+  $fechad = data_first_month_day ($mes, $anio);
   
   $sql = "SELECT precio_ud, cantidad FROM `fact_facturas`".
     	 " INNER JOIN fact_facturas_cstm on fact_facturas.id = fact_facturas_cstm.id_c".
@@ -552,7 +571,7 @@ function getIngresoAlumnoAsignaturaCRM ($alumno, $asignatura, $mes)
 
   
 
-function getSueldoMesCRM ($profe, $mes)
+function getSueldoMesCRM ($profe, $mes, $anio)
 {
   
     		$db = $GLOBALS['db'];
@@ -561,8 +580,8 @@ function getSueldoMesCRM ($profe, $mes)
 // fact_facturas.id = accounts_fact_facturas_c.accounts_fbc88acturas_idb where accounts_fact_facturas_c.accounts_f4ffcccounts_ida = 'aef35f92-dcec-41b8-102f-563893bb5c3b' and clasificacion_c = 'ss'  
  
   
-  $fechah = data_last_month_day ($mes, date("Y"));
-  $fechad = data_first_month_day ($mes, date("Y"));
+  $fechah = data_last_month_day ($mes, $anio);
+  $fechad = data_first_month_day ($mes, $anio);
   
     $query = "select amount from fact_facturas inner join fact_facturas_cstm on fact_facturas.id = fact_facturas_cstm.id_c ";
   $query .= " inner join accounts_fact_facturas_c ON  fact_facturas.id = accounts_fact_facturas_c.accounts_fbc88acturas_idb ";
@@ -584,7 +603,7 @@ $row = $db->fetchByAssoc($result);
   
 }
 
-function getSSMesCRM ($profe, $mes)
+function getSSMesCRM ($profe, $mes, $anio)
 {
 
       		$db = $GLOBALS['db'];
@@ -593,8 +612,8 @@ function getSSMesCRM ($profe, $mes)
 // fact_facturas.id = accounts_fact_facturas_c.accounts_fbc88acturas_idb where accounts_fact_facturas_c.accounts_f4ffcccounts_ida = 'aef35f92-dcec-41b8-102f-563893bb5c3b' and clasificacion_c = 'ss'  
  
   
-  $fechah = data_last_month_day ($mes, date("Y"));
-  $fechad = data_first_month_day ($mes, date("Y"));
+  $fechah = data_last_month_day ($mes, $anio);
+  $fechad = data_first_month_day ($mes, $anio);
   
     $query = "select amount from fact_facturas inner join fact_facturas_cstm on fact_facturas.id = fact_facturas_cstm.id_c ";
   $query .= " inner join accounts_fact_facturas_c ON  fact_facturas.id = accounts_fact_facturas_c.accounts_fbc88acturas_idb ";
@@ -616,7 +635,7 @@ $row = $db->fetchByAssoc($result);
   
 }
 
-function getIRPFMesCRM ($profe, $mes)
+function getIRPFMesCRM ($profe, $mes, $anio)
 {
 
       		$db = $GLOBALS['db'];
@@ -625,8 +644,8 @@ function getIRPFMesCRM ($profe, $mes)
 // fact_facturas.id = accounts_fact_facturas_c.accounts_fbc88acturas_idb where accounts_fact_facturas_c.accounts_f4ffcccounts_ida = 'aef35f92-dcec-41b8-102f-563893bb5c3b' and clasificacion_c = 'ss'  
  
   
-  $fechah = data_last_month_day ($mes, date("Y"));
-  $fechad = data_first_month_day ($mes, date("Y"));
+  $fechah = data_last_month_day ($mes, $anio);
+  $fechad = data_first_month_day ($mes, $anio);
   
     $query = "select amount from fact_facturas inner join fact_facturas_cstm on fact_facturas.id = fact_facturas_cstm.id_c ";
   $query .= " inner join accounts_fact_facturas_c ON  fact_facturas.id = accounts_fact_facturas_c.accounts_fbc88acturas_idb ";

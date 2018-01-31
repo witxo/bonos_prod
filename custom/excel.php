@@ -42,6 +42,7 @@ $rowData[0][4] = $arr[2].'-'.$arr[1].'-'.$arr[0];
             $oldDate = $rowData[0][5];
 $arr = explode('/', $oldDate);
 $rowData[0][5] = $arr[2].'-'.$arr[1].'-'.$arr[0];
+
       $tipo_fact = $rowData[0][2];
       $profesor = $rowData[0][1];
       $clasificacion = $rowData[0][3];
@@ -71,7 +72,7 @@ $rowData[0][5] = $arr[2].'-'.$arr[1].'-'.$arr[0];
     echo '<pre>';
       print_r($rowData);
     echo '</pre>';
-*/    
+  */  
     }
   }
 }

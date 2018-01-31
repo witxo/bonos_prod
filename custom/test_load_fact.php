@@ -57,9 +57,10 @@ function create_factura ($tipo_fact, $profesor, $clasificacion, $fecha, $fecha_c
     $texto = 'Seguridad Social ';
 
   
-  $mes = $arr[1];
   
- $texto =  $texto.$mesesN[$mes].' '.Date('Y');
+   $mes = $arr[1];
+  
+ $texto =  $texto.$mesesN[$mes].' '.$arr[0];
 
 
 	    $db = new DBConnection();
@@ -124,7 +125,7 @@ $numero_fact = $row->maximo + 1;
               array("name" => "gasto_si_no_c", "value" => 'Si'),
               array("name" => "ingreso_si_no_c", "value" => 'No'),
               array("name" => "fact_facturas_type", "value" => $tipo_fact),
-              array("name" => "estado", "value" => "emitida"),
+              array("name" => "estado", "value" => "pagada"),
               array("name" => "numero", "value" => $numero_fact),
 
          ),

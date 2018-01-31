@@ -157,13 +157,17 @@ array (
             'name' => 'bono_c',
             'studio' => 'visible',
             'label' => 'LBL_BONO',
+            'displayParams' => 
+            array (
+             'class' => 'sqsNoAutoFill'
+            ),
+            
           ),
           1 => 
           array (
  				 'name' => 'bono_validado_c',
-        		 'label' => 'LBL_BONO_VALIDADO',
-        	 	 
-          ),
+        		 'label' => 'LBL_BONO_VALIDADO',    
+         ),
         ),
         4 => 
         array (

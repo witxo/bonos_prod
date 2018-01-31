@@ -2,7 +2,12 @@ isadmin = false;
 isvalidated = false;
 isadmin = document.getElementById("isadmin").value;
 iscalendaradmin = document.getElementById("iscalendaradmin").value;
-isvalidated = document.getElementById("bono_validado_c").value;
+if (document.getElementById("bono_validado_c").checked == true)
+{
+  isvalidated = 1;
+}
+else isvalidated = 0;
+//isvalidated = document.getElementById("bono_validado_c").value;
 
 
   boton1 = document.getElementById("btn_bono_c");
@@ -66,13 +71,34 @@ else if ((isadmin != 'true') && (isvalidated == '0') && (iscalendaradmin != 'tru
 $.getScript("http://www.ivema.es/crm/custom/underscore-min.js?v=dXknmDRBiLDfFfHoAMdy9Q");
 
 
+
+
 SUGAR.util.doWhen("typeof(check_form) != 'undefined' && typeof check_form == 'function'", function() {
     check_form = _.wrap(check_form, function(originalCheckFormFunction, originalCheckFormFunctionArg) {
         // Adding custom validation 
       
-      
-      
+
       valor_bono = document.getElementById("bono_c").value;
+      
+        jQuery.ajax({
+        type: "GET",        
+        url: 'http://www.ivema.es/crm/custom/bonoId.php?bono_c='+valor_bono,
+        //dataType: 'json',
+        //data: {functionname: 'getCurr', arguments: [the_string]}, 
+         success:function(data) {
+           datos = data;
+         //alert(data); 
+      
+         },
+          async: false
+    });
+       
+      
+      document.getElementById("bonos_bonos_id_c").value = datos;
+      
+      
+      
+      
 
       
       if (valor_bono != "")

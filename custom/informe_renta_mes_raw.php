@@ -50,7 +50,7 @@ on d.meetings_accounts_1accounts_idb = e.id
 WHERE a.status = 'Held' and a.deleted = 0 and d.deleted = 0 and a.assigned_user_id = '".$id."' and date_start >= '".$fechaini."' and date_start <= '".$fechafin."'  
 and a.name <> 'Vacaciones' order by date_start";
 
-    //echo $sql;
+    echo $sql;
 	$handle = mysql_query($sql);	
 
 
@@ -91,8 +91,8 @@ $total_precio = 0;
          $precio_bono = getPrecioBono($row->meetings_accounts_1meetings_ida);
        }
        
-       $ingreso_al = getIngresoAlumnoAsignatura ($row->cuentaid, $row->nombre_c, $mes);
-       $horas_al = getHorasAlumnoAsignatura ($row->cuentaid, $row->nombrec, $mes);
+       $ingreso_al = getIngresoAlumnoAsignatura ($row->cuentaid, $row->nombre_c, $mes, $anio);
+       $horas_al = getHorasAlumnoAsignatura ($row->cuentaid, $row->nombrec, $mes, $anio);
        $ingreso_hora = $ingreso_al / $horas_al;
        
        $ingreso_total = $ingreso_hora * $horas;
@@ -142,11 +142,11 @@ $total_profe = $total_profe + $horas;
 
 $profeid = getUserAccount ($id);
 
-		  $sueldo_profe = getSueldoMes ($profeid, $mes);
-  $ss_profe = getSSMes ($profeid, $mes);
-  $irpf_profe = getIRPFMes ($profeid, $mes);
+		  $sueldo_profe = getSueldoMes ($profeid, $mes, $anio);
+  $ss_profe = getSSMes ($profeid, $mes, $anio);
+  $irpf_profe = getIRPFMes ($profeid, $mes, $anio);
   $gastos_profe = $sueldo_profe + $ss_profe + $irpf_profe;
-$porcentaje = get_gastos_generales (2017);
+$porcentaje = get_gastos_generales ($anio);
 $gastos_profegg = $gastos_profe+ $gastos_profe*$porcentaje/100;
 $diferencia = $total_precio - $gastos_profe;
 $diferenciagg = $total_precio - $gastos_profegg;

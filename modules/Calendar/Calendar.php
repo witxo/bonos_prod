@@ -201,6 +201,7 @@ class Calendar {
 					$item['assigned_user_id'] = $act->sugar_bean->assigned_user_id;
 					$item['record'] = $act->sugar_bean->id;		
 					$item['name'] = $act->sugar_bean->name;
+              		$item['status'] = $act->sugar_bean->status;
 					
 					if(isset($act->sugar_bean->duration_hours)){
 						$item['duration_hours'] = $act->sugar_bean->duration_hours;

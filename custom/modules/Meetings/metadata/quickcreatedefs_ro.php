@@ -114,12 +114,16 @@ array (
             'name' => 'bono_c',
             'studio' => 'visible',
             'label' => 'LBL_BONO',
+            'displayParams' => 
+            array (
+             'class' => 'sqsNoAutoFill'
+            ),
            ),
           1 => 
           array (
             'name' => 'bono_validado_c',
             'label' => 'LBL_BONO_VALIDADO',
-            'customCode' => '<input type="hidden" name="bono_validado_c" id="bono_validado_c" value="{$fields.bono_validado_c.value}"><input type="checkbox" id="bono_validado_c" name="bono_validado_c" value="{$fields.bono_validado_c.value} {if $fields.bono_validado_c.value == "1"} checked {/if} {$disabled}>',
+            'customCode' => '<input type="hidden" name="bono_validado_c" id="bono_validado_c" value="{$fields.bono_validado_c.value}"><input type="checkbox" id="bono_validado_c" name="bono_validado_c" value="{$fields.bono_validado_c.value}" {if $fields.bono_validado_c.value == "1"} checked {/if} {$disabled}>',
           ),
         ),
         4 => 
